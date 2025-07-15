@@ -1,58 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>JavaScript Quiz</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
   <style>
-    /* ——‑‑ Minimal, clean styling ‑‑—— */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     :root {
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      font-family: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
       line-height: 1.4;
     }
+
     body {
       display: flex;
       justify-content: center;
       align-items: flex-start;
       padding: 2rem;
       background: #f5f7fa;
+      font-size: 14px;
     }
+
     .quiz-card {
       width: 100%;
       max-width: 480px;
       background: #ffffff;
-      padding: 2rem 2.5rem;
+      padding: 1rem 2.5rem;
       border-radius: 1.25rem;
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
     }
+
+    .quiz-card h1 {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
     .question-no {
       font-weight: 700;
       font-size: 1.1rem;
       color: #4a4a4a;
       margin-bottom: 0.25rem;
-      text-transform: uppercase;
     }
+
     .question-text {
       font-size: 1.25rem;
       margin-bottom: 1.5rem;
     }
+
     .choices {
       list-style: none;
       padding: 0;
       margin: 0 0 1.5rem;
     }
+
     .choices li {
       margin-bottom: 0.75rem;
     }
+
     .choices input[type="radio"] {
       margin-right: 0.6rem;
       transform: translateY(2px);
     }
+
     button {
       width: 100%;
       padding: 0.75rem 1rem;
       font-size: 1rem;
-      font-weight: 700;
+      font-weight: 500;
       border: none;
       border-radius: 0.5rem;
       cursor: pointer;
@@ -60,10 +84,15 @@
       color: #ffffff;
       transition: background 0.2s ease;
     }
+
     button:hover {
       background: #3a63e0;
     }
-    .hidden { display: none; }
+
+    .hidden {
+      display: none;
+    }
+
     .result {
       font-size: 1.5rem;
       font-weight: 700;
@@ -72,9 +101,11 @@
     }
   </style>
 </head>
+
 <body>
   <div class="quiz-card" id="quizCard">
-    <p class="question-no" id="questionNo">QUESTION NO. 1</p>
+    <h1>Subject Verb Agreement</h1>
+    <p class="question-no" id="questionNo">Question No. 1</p>
     <p class="question-text" id="questionText">Loading…</p>
 
     <ul class="choices" id="choiceList"></ul>
@@ -84,69 +115,53 @@
   </div>
 
   <script>
-    // ———‑‑‑ Quiz Data (edit freely) ‑‑‑———
-    const quiz = [
-      {
-        seqNo: 1,
-        prompt: "What is the capital of France?",
-        choices: ["Berlin", "Paris", "Madrid", "Rome"],
-        correctIndex: 1,
-      },
-      {
-        seqNo: 2,
-        prompt: "Which planet is known as the Red Planet?",
-        choices: ["Venus", "Mars", "Jupiter", "Saturn"],
-        correctIndex: 1,
-      },
-      {
-        seqNo: 3,
-        prompt: "What is 9 × 9?",
-        choices: ["81", "72", "64", "99"],
-        correctIndex: 0,
-      },
-      // ▶️  Add up to 10 (or more) items following the same structure
-    ];
-
-    // ———‑‑‑ State variables ‑‑‑———
+    let quiz = [];
     let current = 0;
     let score = 0;
 
-    // DOM elements
     const questionNoEl = document.getElementById("questionNo");
     const questionTextEl = document.getElementById("questionText");
     const choiceListEl = document.getElementById("choiceList");
     const submitBtn = document.getElementById("submitBtn");
     const feedbackEl = document.getElementById("feedback");
 
-    // Render a question
+    // Load JSON
+    fetch("QuizApp.json")
+      .then((res) => res.json())
+      .then((data) => {
+        quiz = data;
+        showQuestion(current);
+      })
+      .catch((err) => {
+        questionTextEl.textContent = "Failed to load quiz.";
+        console.error(err);
+      });
+
+    // Functions (same as before)
     function showQuestion(idx) {
       const item = quiz[idx];
-      questionNoEl.textContent = `QUESTION NO. ${item.seqNo || idx + 1}`;
+      questionNoEl.textContent = `Question No. ${item.seqNo || idx + 1}`;
       questionTextEl.textContent = item.prompt;
-
-      // Clear previous choices
       choiceListEl.innerHTML = "";
 
       item.choices.forEach((choice, i) => {
         const li = document.createElement("li");
         li.innerHTML = `
-          <label>
-            <input type="radio" name="choice" value="${i}" />
-            ${choice}
-          </label>`;
+      <label>
+        <input type="radio" name="choice" value="${i}" />
+        ${choice}
+      </label>`;
         choiceListEl.appendChild(li);
       });
 
       feedbackEl.classList.add("hidden");
     }
 
-    // Validate selection
     function getSelectedIndex() {
       const selected = document.querySelector("input[name='choice']:checked");
       return selected ? parseInt(selected.value, 10) : -1;
     }
 
-    // Handle submit click
     submitBtn.addEventListener("click", () => {
       const selectedIdx = getSelectedIndex();
       if (selectedIdx === -1) {
@@ -161,7 +176,6 @@
       feedbackEl.classList.remove("hidden");
       if (isCorrect) score++;
 
-      // Move to next question after a short delay
       submitBtn.disabled = true;
       setTimeout(() => {
         current++;
@@ -169,21 +183,20 @@
           showQuestion(current);
           submitBtn.disabled = false;
         } else {
-          // Quiz finished
           showFinalScore();
         }
-      }, 900);
+      }, 500);
     });
 
     function showFinalScore() {
       quizCard.innerHTML = `
-        <h2 class="result">Quiz Complete!</h2>
-        <p class="result">Your score: ${score} / ${quiz.length}</p>
-      `;
+    <h2 class="result">Quiz Complete!</h2>
+    <p class="result">Your score: ${score} / ${quiz.length}</p>
+  `;
     }
-
-    // Init
-    showQuestion(current);
   </script>
+
+
 </body>
+
 </html>

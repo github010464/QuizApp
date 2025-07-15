@@ -1,0 +1,56 @@
+[
+  {
+    "seqNo": 1,
+    "prompt": "Allen ____ up early every day.",
+    "choices": ["wake", "wakes", "woke", "awoken"],
+    "correctIndex": 1
+  },
+  {
+    "seqNo": 2,
+    "prompt": "Bert and Chris ____ Allen for his daily workout.",
+    "choices": ["joined", "joins", "joining", "join"],
+    "correctIndex": 3
+  },
+  {
+    "seqNo": 3,
+    "prompt": "Macaroni and cheese ____ their favorite dish.",
+    "choices": ["are", "was", "were", "is"],
+    "correctIndex": 3
+  },
+  {
+    "seqNo": 4,
+    "prompt": " Patience, persistence and perseverance ____ what it takes to succeed.",
+    "choices": ["are", "was", "were", "is"],
+    "correctIndex": 3
+  },
+  {
+    "seqNo": 5,
+    "prompt": "Neither of these answers _____ correct.",
+    "choices": ["was", "were", "is", "are"],
+    "correctIndex": 3
+  },
+  {
+    "seqNo": 6,
+    "prompt": "Either my sister or my brothers ____ going to pick me up.",
+    "choices": ["was", "were", "is", "are"],
+    "correctIndex": 3
+  },
+  {
+    "seqNo": 7,
+    "prompt": "Either my brothers or my sister ____ attending the meeting.",
+    "choices": ["are", "was", "were", "is"],
+    "correctIndex": 3
+  },
+  {
+    "seqNo": 8,
+    "prompt": "I ____ young when I saw you.",
+    "choices": ["was", "were", "is", "are"],
+    "correctIndex": 0
+  },
+  {
+    "seqNo": 9,
+    "prompt": "If I ____ to win the contest. I’d buy my parent’s a house.",
+    "choices": ["was", "were", "is", "are"],
+    "correctIndex": 1
+  }
+]
