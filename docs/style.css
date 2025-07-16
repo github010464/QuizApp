@@ -7,7 +7,12 @@
 body {
   font-family: monospace, "Roboto", Arial, sans-serif;
   background: #f5f7fa;
-  padding: 14px;
+  padding: 16px;
+}
+
+.title-header{
+  text-align:center;
+  margin-bottom:10px
 }
 
 .question-card {
@@ -16,6 +21,7 @@ body {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
   padding: 16px 20px;
   margin-bottom: 18px;
+  font-size: 14px;
 }
 
 .question-title {
