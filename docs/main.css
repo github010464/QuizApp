@@ -12,7 +12,7 @@ body {
 }
 
 .container {
-  max-width: 600px;
+  max-width: 760px;
   margin: 30px auto;
   padding: 30px;
   background: #fff;
@@ -73,7 +73,7 @@ p {
 }
 
 .quiz-number {
-    margin-right: 5px; /* Add a little space after the number */
+  margin-right: 5px; /* Add a little space after the number */
 }
 
 .main-footer {
@@ -90,12 +90,12 @@ p {
   margin-left: 10px;
 }
 @media (max-width: 767px) {
-    .menu .btn .quiz-prefix {        
-        display: none; /* Hides only the word "Quiz", taking up no space */
-    }    
-    .menu .btn {
-        font-size: 1em; /* Optional: Adjust font size for the entire button if desired on mobile */
-    }
+  .menu .btn .quiz-prefix {
+    display: none; /* Hides only the word "Quiz", taking up no space */
+  }
+  .menu .btn {
+    font-size: 1em; /* Optional: Adjust font size for the entire button if desired on mobile */
+  }
 }
 
 @media (max-width: 768px) {
@@ -111,5 +111,11 @@ p {
 
   p {
     margin-bottom: 10px;
+  }
+  .menu .btn .quiz-prefix {
+    display: inline; /* Ensure the word "Quiz" is visible on larger screens */
   }  
+  .menu .btn {
+    font-size: 1.2em; /* Optional: Adjust font size for desktop */
+  }
 }
