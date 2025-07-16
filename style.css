@@ -1,0 +1,106 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: monospace, "Roboto", Arial, sans-serif;
+  background: #f5f7fa;
+  padding: 16px;
+}
+
+.title-header{
+  text-align:center;
+  margin-bottom:10px;
+  font-size: 20px;
+}
+
+.question-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
+  padding: 16px 20px;
+  margin-bottom: 18px;
+  font-size: 14px;
+}
+
+.question-title {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.choices {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.choice {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: background 0.15s;
+}
+
+.choice:hover {
+  background: #f0f4ff;
+}
+
+.choice.correct {
+  background: #d2ffd9;
+  border-color: #59c36a;
+  color: #177c29;
+}
+
+.choice.wrong {
+  background: #ffd6d6;
+  border-color: #e46a6a;
+  color: #a11a1a;
+}
+
+.choice .icon {
+  width: 18px;
+  height: 18px;
+  margin-right: 8px;
+  display: inline-block;
+  font-weight: 700;
+}
+
+.explanation {
+  margin-top: 6px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.explanation-content-success {
+  background-color: #def5df;
+  padding: 8px 12px;
+  border-radius: 6px;
+  color: #555;  /* Ensure text color is readable on the background */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);  /* Add this line for the shadow */
+}
+
+.explanation-content-error {
+  background-color: #f8e6e6;  /* Red background */
+  padding: 8px 12px;
+  border-radius: 6px;
+  color: #555;  /* Ensure text color is readable on the background */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);  /* Add this line for the shadow */
+}
+
+.feedback-success {
+  color: green;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.feedback-error {
+  color: red;
+  font-weight: bold;
+  margin-top: 20px;
+}
