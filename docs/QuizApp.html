@@ -1,202 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JavaScript Quiz</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>JavaScript Quiz – Instant Feedback</title>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+            rel="stylesheet" />
+        <link rel="stylesheet" href="styles.css">
+    </head>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <body>
 
-    :root {
-      font-family: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-      line-height: 1.4;
-    }
+        <h2 style="text-align:center;margin-bottom:24px">Subject–Verb Agreement
+            Quiz</h2>
+        <div id="quizContainer"></div>
 
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      padding: 2rem;
-      background: #f5f7fa;
-      font-size: 14px;
-    }
+        <script src="script.js"></script>
 
-    .quiz-card {
-      width: 100%;
-      max-width: 480px;
-      background: #ffffff;
-      padding: 1rem 2.5rem;
-      border-radius: 1.25rem;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
-    }
-
-    .quiz-card h4 {
-      text-decoration: underline;
-      text-underline-offset: 4px;
-      text-transform: uppercase;
-      margin-bottom: 10px;
-      text-align: center;
-    }
-
-    .question-no {
-      font-weight: 700;
-      font-size: 1.1rem;
-      color: #4a4a4a;
-      margin-bottom: 0.25rem;
-    }
-
-    .question-text {
-      font-size: 1.25rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .choices {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 1.5rem;
-    }
-
-    .choices li {
-      margin-bottom: 0.75rem;
-    }
-
-    .choices input[type="radio"] {
-      margin-right: 0.6rem;
-      transform: translateY(2px);
-    }
-
-    button {
-      width: 100%;
-      padding: 0.75rem 1rem;
-      font-size: 1rem;
-      font-weight: 500;
-      border: none;
-      border-radius: 0.5rem;
-      cursor: pointer;
-      background: #4f7cff;
-      color: #ffffff;
-      transition: background 0.2s ease;
-    }
-
-    button:hover {
-      background: #3a63e0;
-    }
-
-    .hidden {
-      display: none;
-    }
-
-    .result {
-      font-size: 1.5rem;
-      font-weight: 700;
-      text-align: center;
-      margin-top: 2rem;
-    }
-  </style>
-</head>
-
-<body>
-  <div class="quiz-card" id="quizCard">
-    <h4>Subject Verb Agreement</h4>
-    <p class="question-no" id="questionNo">Question No. 1</p>
-    <p class="question-text" id="questionText">Loading…</p>
-
-    <ul class="choices" id="choiceList"></ul>
-
-    <button id="submitBtn">Submit</button>
-    <p id="feedback" class="result hidden"></p>
-  </div>
-
-  <script>
-    let quiz = [];
-    let current = 0;
-    let score = 0;
-
-    const questionNoEl = document.getElementById("questionNo");
-    const questionTextEl = document.getElementById("questionText");
-    const choiceListEl = document.getElementById("choiceList");
-    const submitBtn = document.getElementById("submitBtn");
-    const feedbackEl = document.getElementById("feedback");
-
-    // Load JSON
-    fetch("QuizApp.json")
-      .then((res) => res.json())
-      .then((data) => {
-        quiz = data;
-        showQuestion(current);
-      })
-      .catch((err) => {
-        questionTextEl.textContent = "Failed to load quiz.";
-        console.error(err);
-      });
-
-    // Functions (same as before)
-    function showQuestion(idx) {
-      const item = quiz[idx];
-      questionNoEl.textContent = `Question No. ${item.seqNo || idx + 1}`;
-      questionTextEl.textContent = item.prompt;
-      choiceListEl.innerHTML = "";
-
-      item.choices.forEach((choice, i) => {
-        const li = document.createElement("li");
-        li.innerHTML = `
-      <label>
-        <input type="radio" name="choice" value="${i}" />
-        ${choice}
-      </label>`;
-        choiceListEl.appendChild(li);
-      });
-
-      feedbackEl.classList.add("hidden");
-    }
-
-    function getSelectedIndex() {
-      const selected = document.querySelector("input[name='choice']:checked");
-      return selected ? parseInt(selected.value, 10) : -1;
-    }
-
-    submitBtn.addEventListener("click", () => {
-      const selectedIdx = getSelectedIndex();
-      if (selectedIdx === -1) {
-        alert("Please choose an answer first!");
-        return;
-      }
-
-      const item = quiz[current];
-      const isCorrect = selectedIdx === item.correctIndex;
-      feedbackEl.textContent = isCorrect ? "Correct!" : "Sorry, that's wrong.";
-      feedbackEl.style.color = isCorrect ? "green" : "#d9534f";
-      feedbackEl.classList.remove("hidden");
-      if (isCorrect) score++;
-
-      submitBtn.disabled = true;
-      setTimeout(() => {
-        current++;
-        if (current < quiz.length) {
-          showQuestion(current);
-          submitBtn.disabled = false;
-        } else {
-          showFinalScore();
-        }
-      }, 500);
-    });
-
-    function showFinalScore() {
-      quizCard.innerHTML = `
-    <h2 class="result">Quiz Complete!</h2>
-    <p class="result">Your score: ${score} / ${quiz.length}</p>
-  `;
-    }
-  </script>
-
-
-</body>
+    </body>
 
 </html>

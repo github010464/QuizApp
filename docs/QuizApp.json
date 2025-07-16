@@ -1,56 +1,72 @@
 [
   {
     "seqNo": 1,
-    "prompt": "Allen ____ up early every day.",
-    "choices": ["wake", "wakes", "woke", "awoken"],
-    "correctIndex": 1
+    "prompt": "Spaghetti and meatballs ____Tifanny's favorite meal.",
+    "choices": ["is", "are", "was", "were"],
+    "correctIndex": 0,
+    "explanation": "This is an example of how a noun that looks plural can act as singular. Even with the meatballs, it's a singular dish."
   },
   {
     "seqNo": 2,
-    "prompt": "Bert and Chris ____ Allen for his daily workout.",
-    "choices": ["joined", "joins", "joining", "join"],
-    "correctIndex": 3
+    "prompt": "One percent of the students ____ Spanish each year.",
+    "choices": ["fails", "fail", "failed", "failing"],
+    "correctIndex": 1,
+    "explanation": "Don't distracted by the 'one' in 'one percent'. This is not the same thing as 'one' by itself."
   },
   {
     "seqNo": 3,
-    "prompt": "Macaroni and cheese ____ their favorite dish.",
-    "choices": ["are", "was", "were", "is"],
-    "correctIndex": 3
+    "prompt": "Because of the blizzard, a number of local businesses ____ closed yesterday.",
+    "choices": ["is", "are", "was", "were"],
+    "correctIndex": 3,
+    "explanation": "Sometimes people see the word 'number' and think, Aha! A singular noun requires a singular verb. But 'number' with the word 'a' in front of it refers to a plural quantity. It sounds bizarre to try to combine it with a singular verb."
   },
   {
     "seqNo": 4,
-    "prompt": " Patience, persistence and perseverance ____ what it takes to succeed.",
-    "choices": ["are", "was", "were", "is"],
-    "correctIndex": 3
+    "prompt": "The majority of the children ____ already finished their chocolate bars.",
+    "choices": ["has", "have", "was", "were"],
+    "correctIndex": 1,
+    "explanation": "When 'majority' is followed by a plural countable noun, use a plural verb. Here’s an example where you do not have a plural countable noun, and the writer uses a singular verb instead: The majority of the cheese is spoiled."
   },
   {
     "seqNo": 5,
-    "prompt": "Neither of these answers _____ correct.",
-    "choices": ["was", "were", "is", "are"],
-    "correctIndex": 3
+    "prompt": "The number of pet-supply stores just ____ growing.",
+    "choices": ["keep", "keeps", "go on", "continue"],
+    "correctIndex": 1,
+    "explanation": "'The number' is used with a singular verb. 'A number' is used with a plural verb."
   },
   {
     "seqNo": 6,
-    "prompt": "Either my sister or my brothers ____ going to pick me up.",
-    "choices": ["was", "were", "is", "are"],
-    "correctIndex": 3
+    "prompt": "Each of you ____ contributed a great deal to the workshop today.",
+    "choices": ["has", "have", "had", "had not"],
+    "correctIndex": 0,
+    "explanation": "Each is conjugated with a singular verb."
   },
   {
     "seqNo": 7,
-    "prompt": "Either my brothers or my sister ____ attending the meeting.",
-    "choices": ["are", "was", "were", "is"],
-    "correctIndex": 3
+    "prompt": "Six months ____ too long to wait for approval.",
+    "choices": ["is", "are", "was", "were"],
+    "correctIndex": 0,
+    "explanation": "Six months” sounds pretty plural, but it is a single block of time. This question is meant to illustrate how elements that appear plural can be singular in nature and are best matched with a singular verb—in this case, 'is'."
   },
   {
     "seqNo": 8,
-    "prompt": "I ____ young when I saw you.",
-    "choices": ["was", "were", "is", "are"],
-    "correctIndex": 0
+    "prompt": "Mariel, along with Fred and Allegra, ____ going to help us set up the exhibit.",
+    "choices": ["is", "are", "was", "were"],
+    "correctIndex": 0,
+    "explanation": "The subject is the content before the 'along with,' so stick with the singular verb here. If you don’t like the way it sounds—and we don’t—structure the subject differently. For example: Mariel, Fred, and Allegra are going to help us set up the exhibit."
   },
   {
     "seqNo": 9,
-    "prompt": "If I ____ to win the contest. I’d buy my parent’s a house.",
-    "choices": ["was", "were", "is", "are"],
-    "correctIndex": 1
+    "prompt": "Martha is one of the few people who _____ how to operate the equipment.",
+    "choices": ["know", "knows", "was", "were"],
+    "correctIndex": 0,
+    "explanation": "'Who' refers back to 'people,' so use a plural verb. Multiple people know how to operate the equipment! Don’t be distracted by the singular elements: (1)Martha, (2)'is,' and (3)'one.' Yes, Martha is singular, but she already has her own verb: 'is.' The word 'one' is a subject complement, modified by the prepositional phrase 'of the few people.' The relative clause 'who know how to operate the equipment' modifies 'people.'"
+  },
+  {
+    "seqNo": 10,
+    "prompt": "None of the neighbors have arrived yet. Is the verb “have” acceptable in this example?",
+    "choices": ["yes", "no"],
+    "correctIndex": 0,
+    "explanation": "Many people learned, or at least recall learning, that 'none' is singular and must be used with a singular verb. That just isn’t true. 'None' can mean 'not one' or 'not any.' In the latter sense and when followed by a plural countable noun, it is perfectly reasonable, and typically more natural, to use a plural verb. Though it’s not wrong, not many people would spontaneously utter, 'None of the neighbors HAS arrived yet.'"
   }
 ]
