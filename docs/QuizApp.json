@@ -1,7 +1,7 @@
 [
   {
     "seqNo": 1,
-    "prompt": "Spaghetti and meatballs ____Tifanny's favorite meal.",
+    "prompt": "Spaghetti and meatballs ____ Tifanny's favorite meal.",
     "choices": ["is", "are", "was", "were"],
     "correctIndex": 0,
     "explanation": "This is an example of how a noun that looks plural can act as singular. Even with the meatballs, it's a singular dish."
