@@ -14,7 +14,7 @@ body {
   padding: 16px; /* A good default padding for mobile */
 }
 
-body .title-header {
+.title-header {
   text-align: center;
   margin-bottom: 15px; /* Slightly more space for mobile readability */
   font-size: 16px !important; /* A bit larger for mobile headings */
