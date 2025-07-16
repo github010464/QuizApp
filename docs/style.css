@@ -1,3 +1,7 @@
+/* BASE STYLES (MOBILE-FIRST APPROACH) */
+/* These styles apply to all screen sizes by default.
+   Adjust them to look good on smaller screens (mobile). */
+
 * {
   margin: 0;
   padding: 0;
@@ -7,13 +11,14 @@
 body {
   font-family: monospace, "Roboto", Arial, sans-serif;
   background: #f5f7fa;
-  padding: 16px;
+  padding: 16px; /* A good default padding for mobile */
 }
 
-.title-header{
-  text-align:center;
-  margin-bottom:10px;
-  font-size: 1rem;
+.title-header {
+  text-align: center;
+  margin-bottom: 15px; /* Slightly more space for mobile readability */
+  font-size: 20px; /* A bit larger for mobile headings */
+  padding-top: 10px; /* Add some top padding for overall page look */
 }
 
 .question-card {
@@ -22,12 +27,13 @@ body {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
   padding: 16px 20px;
   margin-bottom: 18px;
-  font-size: 14px;
+  font-size: 12px; /* Base font size for question text */
 }
 
 .question-title {
   font-weight: 600;
-  margin-bottom: 8px;
+  margin-bottom: 10px; /* Slightly more space for question title */
+  line-height: 1.4; /* Improve readability for longer titles */
 }
 
 .choices {
@@ -37,10 +43,10 @@ body {
 }
 
 .choice {
-  padding: 8px 12px;
+  padding: 10px 14px; /* Slightly more padding for touch targets */
   border: 1px solid #ddd;
   border-radius: 6px;
-  margin-bottom: 8px;
+  margin-bottom: 10px; /* Slightly more space between choices */
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -64,16 +70,16 @@ body {
 }
 
 .choice .icon {
-  width: 18px;
-  height: 18px;
-  margin-right: 8px;
+  width: 20px; /* Slightly larger icons for mobile */
+  height: 20px;
+  margin-right: 10px; /* Slightly more margin for icons */
   display: inline-block;
   font-weight: 700;
 }
 
 .explanation {
-  margin-top: 6px;
-  font-size: 0.9rem;
+  margin-top: 10px; /* More space above explanation */
+  font-size: 1rem; /* Slightly larger explanation text for mobile */
   color: #555;
 }
 
@@ -81,26 +87,76 @@ body {
   background-color: #def5df;
   padding: 8px 12px;
   border-radius: 6px;
-  color: #555;  /* Ensure text color is readable on the background */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);  /* Add this line for the shadow */
+  color: #555;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .explanation-content-error {
-  background-color: #f8e6e6;  /* Red background */
+  background-color: #f8e6e6;
   padding: 8px 12px;
   border-radius: 6px;
-  color: #555;  /* Ensure text color is readable on the background */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);  /* Add this line for the shadow */
+  color: #555;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .feedback-success {
   color: green;
   font-weight: bold;
-  margin-top: 20px;
+  margin-bottom: 8px; /* Add margin-bottom here */
+  display: block; /* Make it a block element to control its margin easily */
 }
 
 .feedback-error {
   color: red;
   font-weight: bold;
-  margin-top: 20px;
+  margin-bottom: 8px; /* Add margin-bottom here */
+  display: block; /* Make it a block element to control its margin easily */
+}
+
+
+/* MEDIA QUERIES FOR LARGER SCREENS (DESKTOP/TABLET) */
+/* These styles will override the base styles when the screen width is 768px or wider. */
+@media (min-width: 768px) {
+  body {
+    padding: 24px; /* More padding on larger screens */
+  }
+
+  .title-header {
+    margin-bottom: 24px; /* More space for desktop */
+    font-size: 32px; /* Larger heading for desktop */
+  }
+
+  .question-card {
+    padding: 20px 24px; /* Larger padding for cards */
+    margin-bottom: 24px;
+    font-size: 18px; /* Larger base font size for questions */
+    max-width: 700px; /* Constrain width for better readability on wide screens */
+    margin-left: auto; /* Center the cards */
+    margin-right: auto; /* Center the cards */
+  }
+
+  .question-title {
+    margin-bottom: 12px;
+  }
+
+  .choice {
+    padding: 12px 16px;
+    margin-bottom: 12px;
+  }
+
+  .choice .icon {
+    width: 18px; /* Back to original size for desktop if preferred */
+    height: 18px;
+    margin-right: 8px;
+  }
+
+  .explanation {
+    margin-top: 12px;
+    font-size: 0.95rem; /* Slightly adjust for desktop readability if needed */
+  }
+
+  .feedback-success,
+  .feedback-error {
+    margin-bottom: 10px; /* Adjust margin if needed for desktop */
+  }
 }
