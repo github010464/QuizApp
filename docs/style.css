@@ -27,7 +27,7 @@ body {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
   padding: 16px 20px;
   margin-bottom: 18px;
-  font-size: 12px; /* Base font size for question text */
+  font-size: 14px; /* Base font size for question text */
 }
 
 .question-title {
