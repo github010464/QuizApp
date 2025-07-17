@@ -88,13 +88,33 @@ function handleAnswer(selectedIndex, correctIndex, questionIndex, selectedItem, 
   feedback.textContent = selectedIndex === correctIndex ? "✅ Correct!" : "❌ Incorrect.";
   choicesList.parentNode.insertBefore(feedback, choicesList);
 
-  const explanation = document.createElement("div");
-  explanation.className = selectedIndex === correctIndex
-    ? "explanation-content-success"
-    : "explanation-content-error";
-  explanation.classList.add("explanation");
-  explanation.textContent = explanationText;
-  choicesList.parentNode.appendChild(explanation);
+  // const explanation = document.createElement("div");
+  // explanation.className = selectedIndex === correctIndex
+  //   ? "explanation-content-success"
+  //   : "explanation-content-error";
+  // explanation.classList.add("explanation");
+  // explanation.textContent = explanationText;
+  // choicesList.parentNode.appendChild(explanation);
+
+  // Create a label for the explanation
+const explanationLabel = document.createElement("div");
+explanationLabel.textContent = "Explanation:";
+explanationLabel.style.fontWeight = "bold";
+explanationLabel.style.marginTop = "8px";
+explanationLabel.style.marginBottom = "4px";
+
+// Create the explanation content
+const explanation = document.createElement("div");
+explanation.className = selectedIndex === correctIndex
+  ? "explanation-content-success"
+  : "explanation-content-error";
+explanation.classList.add("explanation");
+explanation.textContent = explanationText;
+
+// Append label and explanation
+choicesList.parentNode.appendChild(explanationLabel);
+choicesList.parentNode.appendChild(explanation);
+
 
   answeredQuestions++;
   if (answeredQuestions === quizData.length) {

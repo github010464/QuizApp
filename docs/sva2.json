@@ -60,7 +60,7 @@
       "The coat or the hats is in that closet."
     ],
     "correctIndex": 0,
-    "explanation": "See Explanation 6"
+    "explanation": "When a singular and plural subject are connected by or, either/or, or neither/nor, the verb agrees with the subject closer to it."
   },
   {
     "seqNo": 8,
@@ -70,7 +70,7 @@
       "Neither she nor I are getting the lunch special."
     ],
     "correctIndex": 1,
-    "explanation": "See Explanation 6. In this case, the verb must agree with the subject pronoun 'I.'"
+    "explanation": "When a singular and plural subject are connected by or, either/or, or neither/nor, the verb agrees with the subject closer to it. In this case, the verb must agree with the subject pronoun 'I.'"
   },
   {
     "seqNo": 9,
