@@ -182,6 +182,17 @@ body {
     background-color: #b2f8c1; 
 }
 
+/* Avoid overlap on small screens */
+@media (max-width: 480px) {
+  .floating-home {
+    bottom: 12px;
+    right: 12px;
+    width: 44px;
+    height: 44px;
+    font-size: 20px;
+    line-height: 44px;
+  }
+}
 
 /* MEDIA QUERIES FOR LARGER SCREENS (DESKTOP/TABLET) */
 /* These styles will override the base styles when the screen width is 768px or wider. */
