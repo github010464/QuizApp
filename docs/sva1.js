@@ -91,26 +91,38 @@ function handleChoice(li, card, q) {
 }
 
 /* ---------- HANDLE QUIZ COMPLETION ---------- */
+// function handleCompletion() {
+//     const tryBtn = document.getElementById("tryNewQuizBtn");
+//     let count = parseInt(localStorage.getItem(QUIZ_COUNT_KEY)) || 0;
+//     count++;
+//     localStorage.setItem(QUIZ_COUNT_KEY, count);
+
+//     if (count >= QUIZ_COMPLETION_LIMIT) {
+//         tryBtn.style.display = "none";
+//         const congrats = document.createElement("p");
+//         congrats.textContent = "🎉 Congratulations! You've completed all available quizzes!";
+//         congrats.style.textAlign = "center";
+//         congrats.style.fontSize = "1.2em";
+//         congrats.style.fontWeight = "bold";
+//         congrats.style.color = "green";
+//         document.getElementById("quizContainer").appendChild(congrats);
+//     } else {
+//         tryBtn.style.display = "block";
+//         tryBtn.scrollIntoView({ behavior: "smooth", block: "nearest" });
+//     }
+// }
+
 function handleCompletion() {
     const tryBtn = document.getElementById("tryNewQuizBtn");
+    tryBtn.style.display = "block";
+    tryBtn.scrollIntoView({ behavior: "smooth", block: "nearest" });
+
+    // Optional: still track completions for potential logic elsewhere
     let count = parseInt(localStorage.getItem(QUIZ_COUNT_KEY)) || 0;
     count++;
     localStorage.setItem(QUIZ_COUNT_KEY, count);
-
-    if (count >= QUIZ_COMPLETION_LIMIT) {
-        tryBtn.style.display = "none";
-        const congrats = document.createElement("p");
-        congrats.textContent = "🎉 Congratulations! You've completed all available quizzes!";
-        congrats.style.textAlign = "center";
-        congrats.style.fontSize = "1.2em";
-        congrats.style.fontWeight = "bold";
-        congrats.style.color = "green";
-        document.getElementById("quizContainer").appendChild(congrats);
-    } else {
-        tryBtn.style.display = "block";
-        tryBtn.scrollIntoView({ behavior: "smooth", block: "nearest" });
-    }
 }
+
 
 /* ---------- SHUFFLE QUESTIONS ---------- */
 function shuffleArray(array) {

@@ -142,44 +142,44 @@ body {
 }
 
 .quiz-actions-container {
-    /* To align contents to the right */
-    display: flex;
-    justify-content: flex-end; /* Aligns content to the end (right) */
-    
-    /* Inherit the max-width and center it like the question cards */
-    max-width: 700px; /* Should match the max-width of your .question-card or .container if it applies to all */
-    margin-left: auto;
-    margin-right: auto;
-    
-    /* Add some top margin to separate it from the last question card */
-    margin-top: 20px; 
-    padding-right: 20px; /* Add padding consistent with your container/cards for alignment */
+  /* To align contents to the right */
+  display: flex;
+  justify-content: flex-end; /* Aligns content to the end (right) */
+
+  /* Inherit the max-width and center it like the question cards */
+  max-width: 700px; /* Should match the max-width of your .question-card or .container if it applies to all */
+  margin-left: auto;
+  margin-right: auto;
+
+  /* Add some top margin to separate it from the last question card */
+  margin-top: 20px;
+  padding-right: 20px; /* Add padding consistent with your container/cards for alignment */
 }
 
 /* Style for the "Try a New Quiz" button */
 #tryNewQuizBtn {
-    /* Make sure it's not full width by default */
-    width: auto; 
-    
-    /* Basic button styling (adjust colors, padding, etc., as needed) */
-    font-family: "Roboto", Arial, sans-serif;
-    padding: 8px 18px;
-    /* background-color: #28a745; */
-    background-color: #caf8cc;
-    /* color: white; */
-    color: #666;
-    font-size: .9rem;
-    font-weight: 500;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-align: center;
-    /* text-transform: uppercase; */
-    transition: background-color 0.2s ease;
+  /* Make sure it's not full width by default */
+  width: auto;
+
+  /* Basic button styling (adjust colors, padding, etc., as needed) */
+  font-family: "Roboto", Arial, sans-serif;
+  padding: 8px 18px;
+  /* background-color: #28a745; */
+  background-color: #caf8cc;
+  /* color: white; */
+  color: #666;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  /* text-transform: uppercase; */
+  transition: background-color 0.2s ease;
 }
 
 #tryNewQuizBtn:hover {
-    background-color: #b2f8c1; 
+  background-color: #b2f8c1;
 }
 
 /* Avoid overlap on small screens */
@@ -240,15 +240,15 @@ body {
     margin-bottom: 10px; /* Adjust margin if needed for desktop */
   }
 
-      .quiz-actions-container {
-        max-width: 700px; /* Ensure it matches the constrained width of your question cards */
-        margin-top: 24px; /* Adjust spacing for larger screens */
-        padding-right: 24px; /* Match container padding */
-    }
-    
-    #tryNewQuizBtn {
-          /* Adjust these values to reduce button size */
-        padding: 8px 18px; /* Larger padding for desktop button */
-        font-size: 0.95em; /* Larger font for desktop button */
-    }
+  .quiz-actions-container {
+    max-width: 700px; /* Ensure it matches the constrained width of your question cards */
+    margin-top: 24px; /* Adjust spacing for larger screens */
+    padding-right: 24px; /* Match container padding */
+  }
+
+  #tryNewQuizBtn {
+    /* Adjust these values to reduce button size */
+    padding: 8px 18px; /* Larger padding for desktop button */
+    font-size: 0.95em; /* Larger font for desktop button */
+  }
 }
