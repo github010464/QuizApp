@@ -148,21 +148,18 @@ body {
 }
 
 .quiz-actions-container {
-  /* To align contents to the right */
   display: flex;
-  justify-content: flex-end; /* Aligns content to the end (right) */
+  flex-direction: column;     /* Stack items vertically */
+  align-items: center;        /* Center horizontally */
+  justify-content: center;    /* Optional: center vertically if height matters */
 
-  /* Inherit the max-width and center it like the question cards */
-  max-width: 700px; /* Should match the max-width of your .question-card or .container if it applies to all */
-  margin-left: auto;
-  margin-right: auto;
-
-  /* Add some top margin to separate it from the last question card */
-  margin-top: 20px;
-  padding-right: 20px; /* Add padding consistent with your container/cards for alignment */
+  max-width: 700px;
+  margin: 20px auto 0;
+  padding: 0 20px;
   width: 100%;
   text-align: center;
 }
+
 
 /* Style for the "Try a New Quiz" button */
 #tryNewQuizBtn {
