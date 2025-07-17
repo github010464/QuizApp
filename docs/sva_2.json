@@ -1,0 +1,103 @@
+[
+  {
+    "seqNo": 1,
+    "choices": [
+      "Every one of the shirts has a green collar.",
+      "Every one of the shirts have a green collar."
+    ],
+    "correctIndex": 0,
+    "explanation": "The pronoun one is singular and requires singular verbs. Do not be misled by the object of the preposition."
+  },
+  {
+    "seqNo": 2,
+    "choices": [
+      "This singer, along with a few others, play the harmonica on stage.",
+      "This singer, along with a few others, plays the harmonica on stage."
+    ],
+    "correctIndex": 1,
+    "explanation": "Sometimes the subject is separated from the verb by words such as along with, as well as, besides, or not. Ignore these expressions when determining whether to use a singular or plural verb."
+  },
+  {
+    "seqNo": 3,
+    "choices": [
+      "Sandals and towels are essential gear for a trip to the beach.",
+      "Sandals and towels is essential gear for a trip to the beach."
+    ],
+    "correctIndex": 0,
+    "explanation": "Two subjects connected by and require a plural verb."
+  },
+  {
+    "seqNo": 4,
+    "choices": [
+      "The president or the vice president are speaking today.",
+      "The president or the vice president is speaking today."
+    ],
+    "correctIndex": 1,
+    "explanation": "Two singular subjects connected by or require a singular verb."
+  },
+  {
+    "seqNo": 5,
+    "choices": [
+      "Either Cassie or Marie pays the employees this afternoon.",
+      "Either Cassie or Marie pay the employees this afternoon."
+    ],
+    "correctIndex": 0,
+    "explanation": "Two singular subjects connected by or, either/or, or neither/nor require a singular verb."
+  },
+  {
+    "seqNo": 6,
+    "choices": [
+      "Either the sculpture or the paintings are in the museum today.",
+      "Either the sculpture or the paintings is in the museum today."
+    ],
+    "correctIndex": 0,
+    "explanation": "When a singular and plural subject are connected by or, either/or, or neither/nor, the verb agrees with the subject closer to it."
+  },
+  {
+    "seqNo": 7,
+    "choices": [
+      "The coat or the hats are in that closet.",
+      "The coat or the hats is in that closet."
+    ],
+    "correctIndex": 0,
+    "explanation": "See Explanation 6"
+  },
+  {
+    "seqNo": 8,
+    "choices": [
+      "Neither she nor I is getting the lunch special.",
+      "Neither she nor I am getting the lunch special.",
+      "Neither she nor I are getting the lunch special."
+    ],
+    "correctIndex": 1,
+    "explanation": "See Explanation 6. In this case, the verb must agree with the subject pronoun 'I.'"
+  },
+  {
+    "seqNo": 9,
+    "choices": [
+      "Each of the dancers twirls brilliantly.",
+      "Each of the dancers twirl brilliantly."
+    ],
+    "correctIndex": 0,
+    "explanation": "The pronoun each is singular and requires singular verbs. Do not be misled by the object of the preposition."
+  },
+  {
+    "seqNo": 10,
+    "choices": [
+      "Mustard greens are my favorite vegetable.",
+      "Mustard greens is my favorite vegetable."
+    ],
+    "correctIndex": 0,
+    "explanation": "The subject, 'Mustard greens,' is plural and requires the plural verb 'are.'"
+  },
+  {
+    "seqNo": 11,
+    "choices": [
+      "Everybody at the party was enjoying the food.",
+      "Everybody at the party were enjoying the food."
+    ],
+    "correctIndex": 0,
+    "explanation": "The pronoun everybody is singular and requires singular verbs."
+  }
+]
+
