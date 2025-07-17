@@ -192,6 +192,7 @@ body {
   color: green;
   text-align: center;
   display: none;
+  font-size: 14px;
 }
 
 /* Avoid overlap on small screens */
