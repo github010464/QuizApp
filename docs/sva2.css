@@ -1,0 +1,271 @@
+/* BASE STYLES (MOBILE-FIRST APPROACH) */
+/* These styles apply to all screen sizes by default.
+   Adjust them to look good on smaller screens (mobile). */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: monospace, "Roboto", Arial, sans-serif;
+  background: #f5f7fa;
+  padding: 16px; /* A good default padding for mobile */
+}
+
+.floating-home {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  width: 48px;
+  height: 48px;
+  background: #333;
+  color: white;
+  font-size: 22px;
+  padding: 0;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 48px;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  z-index: 1000;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.floating-home:hover {
+  background: #555;
+  transform: scale(1.1);
+}
+
+.title-header {
+  text-align: center;
+  margin-bottom: 15px; /* Slightly more space for mobile readability */
+  font-size: 16px; /* A bit larger for mobile headings */
+  padding-top: 10px; /* Add some top padding for overall page look */
+}
+
+.title-header:hover {
+  color: green;
+}
+
+.question-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
+  padding: 16px 20px;
+  margin-bottom: 18px;
+  font-size: 14px;
+}
+
+.question-title {
+  font-weight: 600;
+  margin-bottom: 10px; /* Slightly more space for question title */
+  line-height: 1.4; /* Improve readability for longer titles */
+}
+.choices {
+  list-style: none; /* Keep this */
+  padding-left: 0; /* Keep this */
+  margin: 0; /* Keep this */
+}
+
+.choice-item {
+  /* This is the new list item class */
+  display: flex; /* Use flexbox to align radio and label */
+  align-items: flex-start; /* Align items to the top (radio and text) */
+  padding: 10px 14px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  cursor: pointer; /* Cursor on the whole item */
+  transition: background 0.15s;
+}
+
+.choice-item:hover {
+  background: #f0f4ff;
+}
+.choice-item input[type="radio"] {
+  margin-right: 10px; /* Space between radio button and label text */
+  flex-shrink: 0; /* Prevent radio button from shrinking */
+  transform: scale(1.1); /* Slightly larger radio button for touch targets */
+  margin-top: 2px; /* Adjust vertical alignment with text if needed */
+  background-color: red;
+}
+
+.choice-item label {
+  flex-grow: 1; /* Allow the label text to take available space */
+  cursor: pointer; /* Keep cursor on label for interactivity */
+  line-height: 1.4; /* Ensure text wraps nicely */
+}
+
+/* Styles for when a choice-item is correct/wrong */
+.choice-item.correct {
+  background: #d2ffd9;
+  border-color: #59c36a;
+  color: #177c29; /* This will affect the label text color */
+}
+
+.choice-item.wrong {
+  background: #ffd6d6;
+  border-color: #e46a6a;
+  color: #a11a1a; /* This will affect the label text color */
+}
+
+.explanation {
+  margin-top: 10px; /* More space above explanation */
+  font-size: 1rem; /* Slightly larger explanation text for mobile */
+  color: #555;
+}
+
+.explanation-content-success {
+  background-color: #def5df;
+  padding: 8px 12px;
+  border-radius: 6px;
+  color: #555;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.explanation-content-error {
+  background-color: #f8e6e6;
+  padding: 8px 12px;
+  border-radius: 6px;
+  color: #555;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.feedback-success {
+  color: green;
+  font-weight: bold;
+  margin-bottom: 8px; /* Add margin-bottom here */
+  display: block; /* Make it a block element to control its margin easily */
+}
+
+.feedback-error {
+  color: red;
+  font-weight: bold;
+  margin-bottom: 8px; /* Add margin-bottom here */
+  display: block; /* Make it a block element to control its margin easily */
+}
+
+.quiz-actions-container {
+  /* To align contents to the right */
+  display: flex;
+  justify-content: flex-end; /* Aligns content to the end (right) */
+
+  /* Inherit the max-width and center it like the question cards */
+  max-width: 700px; /* Should match the max-width of your .question-card or .container if it applies to all */
+  margin-left: auto;
+  margin-right: auto;
+
+  /* Add some top margin to separate it from the last question card */
+  margin-top: 20px;
+  padding-right: 20px; /* Add padding consistent with your container/cards for alignment */
+}
+
+/* Style for the "Try a New Quiz" button */
+#tryNewQuizBtn {
+  /* Make sure it's not full width by default */
+  width: auto;
+
+  /* Basic button styling (adjust colors, padding, etc., as needed) */
+  font-family: "Roboto", Arial, sans-serif;
+  padding: 8px 18px;
+  /* background-color: #28a745; */
+  background-color: #caf8cc;
+  /* color: white; */
+  color: #666;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  /* text-transform: uppercase; */
+  transition: background-color 0.2s ease;
+}
+
+#tryNewQuizBtn:hover {
+  background-color: #b2f8c1;
+}
+
+/* Avoid overlap on small screens */
+@media (max-width: 480px) {
+  .floating-home {
+    bottom: 12px;
+    right: 12px;
+    width: 44px;
+    height: 44px;
+    font-size: 20px;
+    line-height: 44px;
+  }
+}
+
+/* MEDIA QUERIES FOR LARGER SCREENS (DESKTOP/TABLET) */
+/* These styles will override the base styles when the screen width is 768px or wider. */
+@media (min-width: 768px) {
+  body {
+    padding: 24px; /* More padding on larger screens */
+  }
+
+  .title-header {
+    margin-bottom: 24px; /* More space for desktop */
+    font-size: 32px; /* Larger heading for desktop */
+  }
+
+  .question-card {
+    padding: 20px 24px;
+    margin-bottom: 24px;
+    font-size: 18px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* .choice {
+    padding: 12px 16px;
+    margin-bottom: 12px;
+  }
+
+  .choice .icon {
+    width: 18px; 
+    height: 18px;
+    margin-right: 8px;
+  } */
+
+  .explanation {
+    margin-top: 12px;
+    font-size: 1rem; /* Slightly adjust for desktop readability if needed */
+  }
+
+  .feedback-success,
+  .feedback-error {
+    margin-bottom: 10px; /* Adjust margin if needed for desktop */
+  }
+
+  .quiz-actions-container {
+    max-width: 700px; /* Ensure it matches the constrained width of your question cards */
+    margin-top: 24px; /* Adjust spacing for larger screens */
+    padding-right: 24px; /* Match container padding */
+  }
+
+  #tryNewQuizBtn {
+    /* Adjust these values to reduce button size */
+    padding: 8px 18px; /* Larger padding for desktop button */
+    font-size: 0.95em; /* Larger font for desktop button */
+  }
+
+  .question-title {
+    /* If you still have the question number, adjust its margin */
+    margin-bottom: 15px; /* Increase space below number if no prompt text */
+  }
+
+  .choice-item {
+    padding: 12px 18px; /* Adjust padding for larger screens */
+    margin-bottom: 12px;
+  }
+
+  .choice-item input[type="radio"] {
+    transform: scale(1.2); /* Slightly larger radio button on desktop */
+    margin-right: 12px; /* More space for desktop */
+  }
+}
