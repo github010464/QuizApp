@@ -113,5 +113,5 @@ document.getElementById("tryNewQuizBtn").addEventListener("click", () => {
     }
 
     // If all questions are answered, proceed to the new quiz (or quiz selection page)
-    window.location.href = "sva_2.html"; // Redirect to your main menu or another quiz
+    window.location.href = "sva2.html"; // Redirect to your main menu or another quiz
 });
