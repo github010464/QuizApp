@@ -284,8 +284,20 @@ body {
     font-size: 20px;
     line-height: 44px;
   }
-  .sva-rules-container {  
-    font-size: 12px;
+  .sva-rules-container {
+    font-size: 0.85rem;
+  }
+
+  .sva-rules-container h4 {
+    font-size: 1rem;
+  }
+
+  .list-item-details {
+    font-size: 0.85rem;
+  }
+
+  .bonus-tips {
+    font-size: 0.85rem;
   }
 }
 
