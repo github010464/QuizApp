@@ -291,6 +291,9 @@ body {
   .sva-rules-container h4 {
     font-size: 1rem;
   }
+  .lit-wrapper-item {
+    margin-left: 0;
+  }
 
   .list-item-details {
     font-size: 0.85rem;
