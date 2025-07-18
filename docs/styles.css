@@ -211,8 +211,7 @@ body {
 
 /* Style for the "Try a New Quiz" button */
 #tryNewQuizBtn {
-  /* Make sure it's not full width by default */
-  width: auto;
+  width: auto; 
 
   /* Basic button styling (adjust colors, padding, etc., as needed) */
   font-family: "Roboto", Arial, sans-serif;
@@ -289,10 +288,10 @@ body {
   }
 
   .sva-rules-container h4 {
-    font-size: 1rem;
+    font-size: 0.85rem;
   }
-  .list-wrapper-item {
-    padding-left: 0;
+  .list-wrapper {
+    padding-left: 20px;
   }
 
   .list-item-details {
