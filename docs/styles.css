@@ -284,6 +284,9 @@ body {
     font-size: 20px;
     line-height: 44px;
   }
+  .sva-rules-container {  
+    font-size: 12px;
+  }
 }
 
 /* MEDIA QUERIES FOR LARGER SCREENS (DESKTOP/TABLET) */
