@@ -1,26 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Grammar Quiz Hub</title>
-        <link rel="stylesheet" href="main.css">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+            rel="stylesheet" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+            integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="main_page.css" />
     </head>
-
     <body>
-        <div class="container" style="margin-top: 0;">
+        <div class="container" style="margin-top: 0">
             <h1>Grammar Quiz Hub</h1>
             <p class="tagline">Sharpen your English skills!</p>
-            <p>Select a quiz to test your grammar skills:</p>
+            <!-- <p>Select a quiz to test your grammar skills:</p> -->
 
-            <div class="menu">
-                <a href="sva1.html" class="btn"><span class="quiz-prefix">Quiz </span><span class="quiz-number">1.</span>Subject-Verb
-                    Agreement</a>
-                <a href="quiz2.html" class="btn"><span class="quiz-prefix">Quiz </span><span class="quiz-number">2.</span>Tenses</a>
-                <a href="quiz3.html" class="btn"><span class="quiz-prefix">Quiz </span><span class="quiz-number">3.</span>Prepositions</a>
-                <a href="quiz4.html" class="btn"><span class="quiz-prefix">Quiz </span><span class="quiz-number">4.</span>Articles</a>
-                <a href="quiz5.html" class="btn"><span class="quiz-prefix">Quiz </span><span class="quiz-number">5.</span>Pronouns</a>
+            <div class="accordion-container">
+                <div class="accordion-item">
+                    <button class="accordion-btn">
+                        1.  Subject-Verb Agreement
+                        <span class="accordion-icon"><i
+                                class="fas fa-plus"></i></span>
+                    </button>
+                    <div class="accordion-content">
+                        <ul class="accordion-content-list">
+                            <li class="accordion-list-item">
+                                <a class="accordion-item-details"
+                                    href="sva_rules.html">Subject-Verb Agreement
+                                    Rules</a>
+                            </li>
+                            <li class="accordion-list-item">
+                                <a class="accordion-item-details"
+                                    href="sva1.html">Start a Practice Quiz</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-btn">2.  Tenses</button>
+                    <div class="accordion-content">
+                        <p>
+                            This quiz focuses on the correct usage of verb
+                            tenses.
+                            <a href="quiz2.html">Start Quiz</a>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-btn">3.  Prepositions</button>
+                    <div class="accordion-content">
+                        <p>
+                            Learn how to use prepositions accurately.
+                            <a href="quiz3.html">Start Quiz</a>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-btn">4.  Articles</button>
+                    <div class="accordion-content">
+                        <p>
+                            Test your knowledge of definite and indefinite
+                            articles.
+                            <a href="quiz4.html">Start Quiz</a>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-btn">5.  Pronouns</button>
+                    <div class="accordion-content">
+                        <p>
+                            Review your understanding of pronoun usage.
+                            <a href="quiz5.html">Start Quiz</a>
+                        </p>
+                    </div>
+                </div>
             </div>
 
             <footer class="main-footer">
@@ -29,6 +92,31 @@
             </footer>
         </div>
 
-    </body>
+        <script>
+      document.querySelectorAll(".accordion-btn").forEach((button) => {
+        button.addEventListener("click", () => {
+          const content = button.nextElementSibling;
+          const isOpen = content.style.display === "block";
 
+          // Close all
+          document
+            .querySelectorAll(".accordion-content")
+            .forEach((c) => (c.style.display = "none"));
+          document.querySelectorAll(".accordion-btn").forEach((btn) => {
+            btn.classList.remove("active");
+            const icon = btn.querySelector(".accordion-icon i");
+            if (icon) icon.className = "fas fa-plus";
+          });
+
+          // Toggle clicked one
+          if (!isOpen) {
+            content.style.display = "block";
+            button.classList.add("active");
+            const icon = button.querySelector(".accordion-icon i");
+            if (icon) icon.className = "fas fa-minus";
+          }
+        });
+      });
+    </script>
+    </body>
 </html>
