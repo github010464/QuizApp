@@ -292,7 +292,7 @@ body {
     font-size: 1rem;
   }
   .lit-wrapper-item {
-    margin-left: 0;
+    padding-left: 0;
   }
 
   .list-item-details {
