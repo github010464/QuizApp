@@ -116,7 +116,6 @@ body {
 }
 
 .choice-item {
-  /* This is the new list item class */
   display: flex; /* Use flexbox to align radio and label */
   align-items: flex-start; /* Align items to the top (radio and text) */
   padding: 10px 14px;
@@ -289,6 +288,7 @@ body {
   .list-wrapper {
     padding-left: 20px;
   }
+
   .bonus-tips {
     font-size: 0.85rem;
     padding-left: 20px;
