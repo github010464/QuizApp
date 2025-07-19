@@ -1,0 +1,161 @@
+[  
+  {
+    "seqNo": 1,
+    "prompt": "What would the correct choice be:",
+    "choices": [
+      "Mathematics is a required subject for a college degree.",
+      "Mathematics are a required subject for a college degree."
+    ],
+    "correctIndex": 0,
+    "explanation": "'Is' is the correct choice because 'mathematics' is treated as a singular noun in this context. Even though 'mathematics' ends in 's' and might seem plural, it refers to a single field of study."
+  },
+  {
+    "seqNo": 2,
+    "prompt": "Which sentence uses subject-verb agreement correctly?",
+    "choices": [
+      "The data shows an increase in temperature over time.",
+      "The pack of wolves run through the forest every night.",      
+      "There is many reasons why he left early.",
+      "The committee were divided in their opinions."
+    ],
+    "correctIndex": 0,
+    "explanation": "'Data' can be singular or plural in different contexts, but in scientific writing, it is often treated as singular, making 'shows' correct. In choice B, 'pack' is a collective noun and should be singular, so 'runs' should be used instead of 'run.'"
+  },
+  {
+    "seqNo": 3,
+    "prompt": "What would the correct choice be:",
+    "choices": [
+      "There is several reasons for Desiree's happy expression today.",
+      "There are several reasons for Desiree's happy expression today."
+    ],
+    "correctIndex": 1,
+    "explanation": "The correct choice for the sentence 'There (is/are) several reasons for Desiree’s happy expression today. is 'are'."
+  },
+  {
+    "seqNo": 4,
+    "prompt": "What would the correct choice be:",
+    "choices": [
+      "Anthony and DeShawn is finished with the essay.",
+      "Anthony and DeShawn are finished with the essay."
+    ],
+    "correctIndex": 1,
+    "explanation": "The correct choice for the sentence 'Anthony and DeShawn (is/are) finished with the essay.' is 'are."
+  },
+  {
+    "seqNo": 5,
+    "prompt": "What would the correct choice be:",
+    "choices": [
+      "Everyone in class needs to study.",
+      "Everyone in class need to study."
+    ],
+    "correctIndex": 0,
+    "explanation": "The subject of the sentence is 'Everyone,' which is singular, even though it refers to a group of people. In English, words like 'everyone,' 'someone,' and 'anyone' are treated as singular subjects."
+  },
+  {
+    "seqNo": 6,
+    "prompt": "What would the correct choice be:",
+    "choices": [
+      "Twenty dollars is not a lot of money these days.",
+      "Twenty dollars are not a lot of money these days."
+    ],
+    "correctIndex": 0,
+    "explanation": "The sentence should be: 'Twenty dollars is not a lot of money these days.' The reason for this is that 'twenty dollars' is a singular amount, so it should be followed by the singular verb 'is'."
+  },
+  {
+    "seqNo": 7,
+    "prompt": "What would the correct choice be:",
+    "choices": [
+      "The football team practices every day.",
+      "The football team practice every day."
+    ],
+    "correctIndex": 0,
+    "explanation": "In American English, collective nouns like 'team,' 'group,' 'committee,' and others are typically treated as singular entities. This means that when referring to these nouns, the verb forms also need to be singular to maintain subject-verb agreement."
+  },
+  {
+    "seqNo": 8,
+    "prompt": "What would the correct choice be:",
+    "choices": [
+      "Claudia, as well as Judy, speaks American Sign Language.",
+      "Claudia, as well as Judy, speak American Sign Language."
+    ],
+    "correctIndex": 0,
+    "explanation": "In English, when we use phrases like 'as well as', 'along with', or 'together with', the verb agrees with the first subject. In this case, 'Claudia' is the first subject and it is singular, so we use 'speaks' instead of 'speak'."
+  },
+  {
+    "seqNo": 9,
+    "prompt": "The sentence demonstrates correct subject-verb agreement is:",
+    "choices": [
+      "The group of students are studying for their exams.",
+      "Neither the teacher nor the student is attending the meeting.",
+      "The dog and the cat was playing in the yard.",
+      "Each of the books have a different cover."
+    ],
+    "correctIndex": 1,
+    "explanation": "In this sentence, the subject 'Neither the teacher nor the student' is treated as singular, so the correct verb form is 'is.' The other sentences have subject-verb agreement errors: 'The group of students is studying for their exams."
+  },
+  {
+    "seqNo": 10,
+    "prompt": "What would the correct choice be:",
+    "choices": [
+      "Each of the winners receive a scholarship and a trophy, every year.",
+      "Each of the winners receives a scholarship and a trophy, every year."
+    ],
+    "correctIndex": 1,
+    "explanation": "The correct choice for the sentence 'Each of the winners (receives/receive) a scholarship and a trophy, every year.' is 'receives."
+  },
+  {
+    "seqNo": 11,
+    "prompt": "Which of the sentence has proper subject-verb agreement?",
+    "choices": [
+      "The team are winning the championship this year.",
+      "The number of errors were alarming.",
+      "Neither of the options seems ideal.",
+      "A variety of flowers bloom in the garden."
+    ],
+    "correctIndex": 2,
+    "explanation": "'Neither' is singular and should be followed by a singular verb, 'seems.' In choice A, 'team' is a singular collective noun and should use 'is' instead of 'are."
+  },
+  {
+    "seqNo": 12,
+    "prompt": "Which sentence is grammatically correct?",
+    "choices": [
+      "The teacher, along with her students, were excited for the trip.",
+      "The group of hikers was well-prepared for the journey.",
+      "Either my cousins or my brother go to the gym daily.",
+      "One of the players on the team have been injured."
+    ],
+    "correctIndex": 1,
+    "explanation": "'Group' is a collective noun and is treated as singular, so 'was' is correct. In choice A, 'the teacher' is the main subject, which is singular, so 'was' should be used instead of 'were.'"
+  },
+  {
+    "seqNo": 13,
+    "prompt": "What would the correct choice be:",
+    "choices": [
+      "Near the center of the campus is the counselor's office.",
+      "Near the center of the campus are the counselor's office."
+    ],
+    "correctIndex": 0,
+    "explanation": "For the sentence 'Near the center of the campus (is/are) the counselor's office,' the correct choice is 'is.' The term 'the counselor's office' refers to a single office that belongs to a counselor."
+  },
+  {
+    "seqNo": 14,
+    "prompt": "What would the correct choice be:",
+    "choices": [
+      "Some of the grapes in our local market comes from Mexico.",
+      "Some of the grapes in our local market come from Mexico."
+    ],
+    "correctIndex": 1,
+    "explanation": "The correct choice for the sentence 'Some of the grapes in our local market (comes/come) from Mexico.' is 'come.'"
+  },
+  {
+    "seqNo": 15,
+    "prompt": "What would the correct choice be:",
+    "choices": [
+      "Where does your grandmother and grandfather live?",
+      "Where do your grandmother and grandfather live?"
+    ],
+    "correctIndex": 1,
+    "explanation": "The sentence 'Where do your grandmother and grandfather live?' involves subject-verb agreement. The subject, 'grandmother and grandfather,' is a compound subject, and since it includes more than one person, it is considered plural."
+  }
+]
+
