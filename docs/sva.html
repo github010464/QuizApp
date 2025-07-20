@@ -21,6 +21,20 @@
             min-height: 100vh;
             overflow-y: auto;
         }
+
+        #quizContainer {
+            width: 100%;
+            max-width: 700px;
+            /* background-color: #fff; */
+            border-radius: 8px;
+            /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
+            box-sizing: border-box;
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
         .question-card {
             background-color: #ffffff;
             border: 1px solid #ddd;
@@ -135,7 +149,7 @@
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
-            margin-top: 20px;
+            margin-top: 0;
             box-sizing: border-box;
             width: 100%;
         }
@@ -297,7 +311,7 @@
 
             .quiz-actions-container {
                 max-width: 700px;
-                margin-top: 24px;
+                margin-top: 0px;
             }
 
             #tryNewQuizBtn {
@@ -335,7 +349,7 @@
 
         // Local Storage Keys
         const QUIZ_COUNT_KEY = "completedQuizCount"; // General counter (optional)
-        const COMPLETED_QUIZZES_LIST_KEY = "completedQuizPages"; // To track which specific quizzes are done (optional)
+        const COMPLETED_QUIZZES_LIST_KEY = "completedQuizPages"; // To track which specific quizzes are done optional)
         const CURRENT_QUIZ_INDEX_KEY = "currentQuizIndex"; // Crucial for progression
         localStorage.setItem(CURRENT_QUIZ_INDEX_KEY, 0);
 
@@ -347,7 +361,7 @@
         // Quiz Sequence Definition
         // IMPORTANT: List all your quiz JSON files in order here.
         // Example: If you have sva1.json, sva2.json, sva3.json, etc.
-        const QUIZ_FILES_SEQUENCE = ["sva1.json", "sva2.json", "sva3.json"]; // Add all your quiz files here!
+        const QUIZ_FILES_SEQUENCE = ["sva1.json", "sva2.json", "sva3.json", "sva4.json"]; // Add all your quiz files here!
 
         // Retrieve current quiz index from local storage, default to 0 (for 1st quiz in sequence)
         // If localStorage is empty or invalid, start from the very first quiz (index 0).

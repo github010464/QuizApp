@@ -1,0 +1,143 @@
+[
+  {
+    "seqNo": 1,
+    "prompt": "Either the doctor or the nurses ____ attending the patient.",
+    "choices": ["is", "are"],
+    "correctIndex": 1,
+    "explanation": "Subjects with 'either or', 'neither nor' (Rule 2). The verb agress with the subject. Either the doctor or the nurses are attending the patient."
+  },
+  {
+    "seqNo": 2,
+    "prompt": "Thirty dollars ____ all I have in my wallet.",
+    "choices": ["is", "are"],
+    "correctIndex": 0,
+    "explanation": "Expressions of Time, money, distance, weight (Rule 4). Treated as singular even if they seem plural."
+  },
+  {
+    "seqNo": 3,
+    "prompt": "More than one or more candidates ____ considered for the position.",
+    "choices": ["was", "were"],
+    "correctIndex": 0,
+    "explanation": "Expressions with One (Rule 10). 'One of the', 'One of the only', 'More than one' require a singular verb."
+  },
+  {
+    "seqNo": 4,
+    "prompt": "Everyone ____ excited for the trip.",
+    "choices": ["is", "are"],
+    "correctIndex": 0,
+    "explanation": "Indefinite pronouns like everyone, somebody, nothing (Reule 8). All require a singular verb."
+  },
+  {
+    "seqNo": 5,
+    "prompt": "Macaroni and cheese ____ my comforty food.",
+    "choices": ["is", "are"],
+    "correctIndex": 0,
+    "explanation": "Subjects with 'and' usually takes a plural verb. (Unless 1 entity)."
+  },
+  {
+    "seqNo": 6,
+    "prompt": "The pair of sunglasees _____ missing",
+    "choices": ["is", "are"],
+    "correctIndex": 0,
+    "explanation": "Nouns that refer to many items (Rule 5). Require a singular verb."
+  },
+  {
+    "seqNo": 7,
+    "prompt": "The bride and groom ____ dancing together.",
+    "choices": ["is", "are"],
+    "correctIndex": 1,
+    "explanation": "Subjects with 'and' (Rule 1). Usually takes a plural verb. (unless 1 entity)."
+  },
+  {
+    "seqNo": 8,
+    "prompt": "Twenty kilos ____ too much to lift for some pepole",
+    "choices": ["is", "are"],
+    "correctIndex": 0,
+    "explanation": "Time, money, distance, weight, etc. (Rule 4). Treated as singular even if they seem plural."
+  },
+  {
+    "seqNo": 9,
+    "prompt": "One third of the cookies ____ burnt.",
+    "choices": ["is", "are"],
+    "correctIndex": 1,
+    "explanation": "Fractions and percentages. The verb agrees with the noun that follows the fraction or percentage."
+  },
+  {
+    "seqNo": 10,
+    "prompt": "Politics ____ public speaking skills.",
+    "choices": ["requires", "require"],
+    "correctIndex": 0,
+    "explanation": "Nouns ending 's'. Some nouns look plural but they are not."
+  },
+  
+  {
+    "seqNo": 11,
+    "prompt": "One of the best movies that ____ released last year is still popular.",
+    "choices": ["was", "were"],
+    "correctIndex": 0,
+    "explanation": "Expressions with ONE: One of the / One of the only / More than one (Rule 10). Require a singular verb."
+  },
+  {
+    "seqNo": 12,
+    "prompt": "All of my order ____ delivered on time.",
+    "choices": ["was", "were"],
+    "correctIndex": 0,
+    "explanation": "Quantifiers: All, some, most, a lot, plenty, any, none, more, enough. The verb agrees with the noun that follows."
+  },
+  {
+    "seqNo": 13,
+    "prompt": "The dog, along with its puppies, ____ playing in the yard",
+    "choices": ["was", "were"],
+    "correctIndex": 0,
+    "explanation": "Conjunctions 'as well as', 'together with', 'along with” (Rule 7). The verb agrees with the main subject, not with the additional phrase."
+  },
+  {
+    "seqNo": 14,
+    "prompt": "Only three quarters of her homework ____ completed.",
+    "choices": ["was", "were"],
+    "correctIndex": 0,
+    "explanation": "Indefinite pronouns like everyone, somebody, nothing (Rule 8). All require a singular verb."
+  },  
+  {
+    "seqNo": 15,
+    "prompt": "Something ____ wrong with his laptop",
+    "choices": ["has", "have"],
+    "correctIndex": 0,
+    "explanation": "Indefinite pronouns like everyone, somebody, nothing (Rule 8). All require a singular verb."
+  },
+  {
+    "seqNo": 16,
+    "prompt": "Neither the players nor the coach ____ with the results.",
+    "choices": ["is", "are"],
+    "correctIndex": 0,
+    "explanation": "Subjects with either or, either nor (Rule 2). The verb agrees with the subject closer to it."
+  },
+  {
+    "seqNo": 17,
+    "prompt": "Most of the cookies ____ gone",
+    "choices": ["is", "are"],
+    "correctIndex": 1,
+    "explanation": "Quantifiers: All, some, most, a lot, plenty, any, none, more, enough (Rule 9). The verb agrees with the noun that follows."
+  },
+  {
+    "seqNo": 18,
+    "prompt": "The news ____ spreading quickly.",
+    "choices": ["is", "are"],
+    "correctIndex": 0,
+    "explanation": "Nouns ending 's' (Rule 3). Some nouns look plural but they are not."
+  },
+  {
+    "seqNo": 19,
+    "prompt": "The bouquet of roses ____ lovely .",
+    "choices": ["is", "are"],
+    "correctIndex": 0,
+    "explanation": "Nouns that refer to many items (Rule 5). Require a singular verb."
+  },
+  {
+    "seqNo": 20,
+    "prompt": "The guide, as well as the tourists, ____ amazed by the scenery.",
+    "choices": ["was", "were"],
+    "correctIndex": 0,
+    "explanation": "Conjunctions 'as well as', 'together with', 'along with', (Rule 7). The verb agrees with the main subject, not with the additional phrase."
+  }
+]
