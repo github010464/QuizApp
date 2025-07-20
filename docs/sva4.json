@@ -107,7 +107,7 @@
   },
   {
     "seqNo": 16,
-    "prompt": "Neither the players nor the coach ____ with the results.",
+    "prompt": "Neither the players nor the coach ____ happy with the results.",
     "choices": ["is", "are"],
     "correctIndex": 0,
     "explanation": "Subjects with either or, either nor (Rule 2). The verb agrees with the subject closer to it."
