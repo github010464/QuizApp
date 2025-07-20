@@ -96,7 +96,7 @@
     "prompt": "Only three quarters of her homework ____ completed.",
     "choices": ["was", "were"],
     "correctIndex": 0,
-    "explanation": "Indefinite pronouns like everyone, somebody, nothing (Rule 8). All require a singular verb."
+    "explanation": "Fractions and percentages. The verb agrees with the noun that follows the fraction or percentage."
   },  
   {
     "seqNo": 15,
