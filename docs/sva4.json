@@ -11,7 +11,7 @@
     "prompt": "Thirty dollars ____ all I have in my wallet.",
     "choices": ["is", "are"],
     "correctIndex": 0,
-    "explanation": "Expressions of Time, money, distance, weight (Rule 4). Treated as singular even if they seem plural."
+    "explanation": "Expressions of time, money, distance, weight (Rule 4). Treated as singular even if they seem plural."
   },
   {
     "seqNo": 3,
@@ -36,7 +36,7 @@
   },
   {
     "seqNo": 6,
-    "prompt": "The pair of sunglasees _____ missing",
+    "prompt": "The pair of sunglasses _____ missing",
     "choices": ["is", "are"],
     "correctIndex": 0,
     "explanation": "Nouns that refer to many items (Rule 5). Require a singular verb."
