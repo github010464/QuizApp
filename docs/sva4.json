@@ -29,7 +29,7 @@
   },
   {
     "seqNo": 5,
-    "prompt": "Macaroni and cheese ____ my comforty food.",
+    "prompt": "Macaroni and cheese ____ my comfort food.",
     "choices": ["is", "are"],
     "correctIndex": 0,
     "explanation": "Subjects with 'and' usually takes a plural verb. (Unless 1 entity)."
@@ -50,7 +50,7 @@
   },
   {
     "seqNo": 8,
-    "prompt": "Twenty kilos ____ too much to lift for some pepole",
+    "prompt": "Twenty kilos ____ too much to lift for some people",
     "choices": ["is", "are"],
     "correctIndex": 0,
     "explanation": "Time, money, distance, weight, etc. (Rule 4). Treated as singular even if they seem plural."
