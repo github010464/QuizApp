@@ -614,13 +614,23 @@
         return arr;
       }
 
-      window.history.scrollRestoration = 'manual'; // prevents scroll restore on reload
-      
-      window.addEventListener("load", () => {
-        document.documentElement.scrollTop = 0; // For most modern browsers (Chrome, Firefox, Edge)
-        document.body.scrollTop = 0; // For older browsers and Safari
-      });
-      
+  window.history.scrollRestoration = 'manual'; // prevents scroll restore on reload
+
+  window.addEventListener('load', () => {
+    // Remove anchor/hash scroll
+    if (location.hash) {
+      history.replaceState(null, null, location.pathname);
+    }
+
+    // Force scroll to top
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+
+    // Optional: blur any element that might be focused
+    if (document.activeElement) {
+      document.activeElement.blur();
+    }
+  }); 
     </script>
   </body>
 </html>
