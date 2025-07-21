@@ -614,6 +614,8 @@
         return arr;
       }
 
+      window.history.scrollRestoration = 'manual'; // prevents scroll restore on reload
+      
       window.addEventListener("load", () => {
         document.documentElement.scrollTop = 0; // For most modern browsers (Chrome, Firefox, Edge)
         document.body.scrollTop = 0; // For older browsers and Safari
