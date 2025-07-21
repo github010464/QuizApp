@@ -614,23 +614,18 @@
         return arr;
       }
 
-  window.history.scrollRestoration = 'manual'; // prevents scroll restore on reload
+    window.history.scrollRestoration = 'manual';
 
-  window.addEventListener('load', () => {
-    // Remove anchor/hash scroll
-    if (location.hash) {
-      history.replaceState(null, null, location.pathname);
-    }
+  // Try multiple times to force scroll to top
+  function forceScrollTop() {
+    setTimeout(() => window.scrollTo(0, 0), 0);        // Immediately after load
+    setTimeout(() => window.scrollTo(0, 0), 100);      // Short delay
+    setTimeout(() => window.scrollTo(0, 0), 300);      // Slightly longer
+    setTimeout(() => window.scrollTo(0, 0), 500);      // Just in case
+  }
 
-    // Force scroll to top
-    document.documentElement.scrollTop = 0;
-    document.body.scrollTop = 0;
+  window.addEventListener('load', forceScrollTop);
 
-    // Optional: blur any element that might be focused
-    if (document.activeElement) {
-      document.activeElement.blur();
-    }
-  }); 
     </script>
   </body>
 </html>
