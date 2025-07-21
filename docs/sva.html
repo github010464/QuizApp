@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>SVA Quiz</title>
-        <link
-            href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
-            rel="stylesheet" />
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css?display=swap"
-            integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer" />
-        <style>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SVA Quiz</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css?display=swap"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
       body {
         font-family: monospace, Arial, sans-serif;
         background-color: #f4f4f4;
@@ -24,6 +26,7 @@
         margin: 0;
         min-height: 100vh;
         overflow-y: auto;
+        scroll-behavior: smooth;
       }
 
       #quizContainer {
@@ -159,7 +162,7 @@
       #tryNewQuizBtn {
         display: none;
         width: auto;
-        font-family: 'Roboto', Arial, sans-serif;
+        font-family: "Roboto", Arial, sans-serif;
         padding: 8px 18px;
         background-color: green;
         color: #eee;
@@ -296,7 +299,7 @@
           margin-bottom: 12px;
         }
 
-        .choice-item input[type='radio'] {
+        .choice-item input[type="radio"] {
           transform: scale(1.2);
           margin-right: 12px;
         }
@@ -321,167 +324,167 @@
           font-size: 0.95em;
         }
       }
-        </style>
-    </head>
+    </style>
+  </head>
 
-    <body>
-        <a href="index.html" class="floating-home" title="Go Home">
-            <i class="fa-solid fa-house"></i>
-        </a>
-        <h3 class="title-header">Subject–Verb Agreement Quiz</h3>
+  <body>
+    <a href="index.html" class="floating-home" title="Go Home">
+      <i class="fa-solid fa-house"></i>
+    </a>
+    <h3 class="title-header">Subject–Verb Agreement Quiz</h3>
 
-        <div id="quizContainer">Loading quiz...</div>
+    <div id="quizContainer">Loading quiz...</div>
 
-        <div class="quiz-actions-container">
-            <button id="tryNewQuizBtn">Next Quiz</button>
-            <div id="congratsMessage">
-                🎉 Congratulations! You've completed all quizzes! 🎉
-            </div>
-        </div>
+    <div class="quiz-actions-container">
+      <button id="tryNewQuizBtn">Next Quiz</button>
+      <div id="congratsMessage">
+        🎉 Congratulations! You've completed all quizzes! 🎉
+      </div>
+    </div>
 
-        <script>
+    <script>
       // localStorage.setItem(CURRENT_QUIZ_INDEX_KEY, 0); // Always start at first quiz
 
       /* ---------- GLOBAL VARIABLES ---------- */
-      let quizData = [] // Stores the current quiz's questions
-      let totalQuestions = 0 // Total questions in the current quiz
-      let answeredQuestionsCount = 0 // Questions answered in the current quiz
+      let quizData = []; // Stores the current quiz's questions
+      let totalQuestions = 0; // Total questions in the current quiz
+      let answeredQuestionsCount = 0; // Questions answered in the current quiz
 
       // Local Storage Keys
-      const QUIZ_COUNT_KEY = 'completedQuizCount' // General counter (optional)
-      const COMPLETED_QUIZZES_LIST_KEY = 'completedQuizPages' // To track which specific quizzes are done optional)
-      const CURRENT_QUIZ_INDEX_KEY = 'currentQuizIndex' // Crucial for progression
-      localStorage.setItem(CURRENT_QUIZ_INDEX_KEY, 0)
+      const QUIZ_COUNT_KEY = "completedQuizCount"; // General counter (optional)
+      const COMPLETED_QUIZZES_LIST_KEY = "completedQuizPages"; // To track which specific quizzes are done optional)
+      const CURRENT_QUIZ_INDEX_KEY = "currentQuizIndex"; // Crucial for progression
+      localStorage.setItem(CURRENT_QUIZ_INDEX_KEY, 0);
 
       // DOM Elements
-      const tryBtn = document.getElementById('tryNewQuizBtn')
-      const quizContainer = document.getElementById('quizContainer')
-      const congratsMessage = document.getElementById('congratsMessage')
+      const tryBtn = document.getElementById("tryNewQuizBtn");
+      const quizContainer = document.getElementById("quizContainer");
+      const congratsMessage = document.getElementById("congratsMessage");
 
       // Quiz Sequence Definition
       // IMPORTANT: List all your quiz JSON files in order here.
       // Example: If you have sva1.json, sva2.json, sva3.json, etc.
       const QUIZ_FILES_SEQUENCE = [
-        'sva1.json',
-        'sva2.json',
-        'sva3.json',
-        'sva4.json'
-      ] // Add all your quiz files here!
+        "sva1.json",
+        "sva2.json",
+        "sva3.json",
+        "sva4.json",
+      ]; // Add all your quiz files here!
 
       // Retrieve current quiz index from local storage, default to 0 (for 1st quiz in sequence)
       // If localStorage is empty or invalid, start from the very first quiz (index 0).
       let currentQuizIndex = parseInt(
         localStorage.getItem(CURRENT_QUIZ_INDEX_KEY)
-      )
+      );
       if (
         isNaN(currentQuizIndex) ||
         currentQuizIndex < 0 ||
         currentQuizIndex >= QUIZ_FILES_SEQUENCE.length
       ) {
-        currentQuizIndex = 0 // Default to the first quiz
-        localStorage.setItem(CURRENT_QUIZ_INDEX_KEY, currentQuizIndex) // Store the default
+        currentQuizIndex = 0; // Default to the first quiz
+        localStorage.setItem(CURRENT_QUIZ_INDEX_KEY, currentQuizIndex); // Store the default
       }
 
       /* ---------- INIT ---------- */
       // Load the initial quiz based on the currentQuizIndex
-      loadQuiz(QUIZ_FILES_SEQUENCE[currentQuizIndex])
+      loadQuiz(QUIZ_FILES_SEQUENCE[currentQuizIndex]);
 
       /* ---------- LOAD QUIZ DATA ---------- */
       function loadQuiz(filename) {
-        console.log(`Attempting to load quiz: ${filename}`) // Debugging
+        console.log(`Attempting to load quiz: ${filename}`); // Debugging
         fetch(filename)
-          .then(res => {
+          .then((res) => {
             if (!res.ok) {
               // If response is not OK (e.g., 404 Not Found, 500 Internal Server Error)
               throw new Error(
                 `HTTP error! Status: ${res.status} for ${filename}`
-              )
+              );
             }
-            return res.json()
+            return res.json();
           })
-          .then(data => {
+          .then((data) => {
             if (data.length === 0) {
-              console.warn(`Quiz data for ${filename} is empty.`)
-              quizContainer.textContent = 'Quiz is empty or invalid.'
-              tryBtn.style.display = 'none'
-              congratsMessage.style.display = 'none'
-              return
+              console.warn(`Quiz data for ${filename} is empty.`);
+              quizContainer.textContent = "Quiz is empty or invalid.";
+              tryBtn.style.display = "none";
+              congratsMessage.style.display = "none";
+              return;
             }
-            quizData = shuffleArray(data) // Shuffle questions
-            totalQuestions = quizData.length
-            answeredQuestionsCount = 0 // Reset for new quiz
-            tryBtn.style.display = 'none' // Hide button until this quiz is completed
-            congratsMessage.style.display = 'none' // Hide congrats message on new quiz load
-            renderQuiz(quizData) // Display the loaded quiz
-            window.scrollTo({ top: 0, behavior: 'smooth' }) // Scroll to top for new quiz
+            quizData = shuffleArray(data); // Shuffle questions
+            totalQuestions = quizData.length;
+            answeredQuestionsCount = 0; // Reset for new quiz
+            tryBtn.style.display = "none"; // Hide button until this quiz is completed
+            congratsMessage.style.display = "none"; // Hide congrats message on new quiz load
+            renderQuiz(quizData); // Display the loaded quiz
+            window.scrollTo({ top: 0, behavior: "smooth" }); // Scroll to top for new quiz
           })
-          .catch(err => {
+          .catch((err) => {
             // Display a user-friendly error message
-            quizContainer.innerHTML = `<p style="color: red;">Failed to load quiz: ${filename}. Please check the file path and JSON format.</p>`
-            console.error('Error loading quiz data:', err) // Log full error for debugging
-            tryBtn.style.display = 'none' // Ensure button is hidden
-            congratsMessage.style.display = 'none' // Ensure congrats is hidden
-          })
+            quizContainer.innerHTML = `<p style="color: red;">Failed to load quiz: ${filename}. Please check the file path and JSON format.</p>`;
+            console.error("Error loading quiz data:", err); // Log full error for debugging
+            tryBtn.style.display = "none"; // Ensure button is hidden
+            congratsMessage.style.display = "none"; // Ensure congrats is hidden
+          });
       }
 
       /* ---------- RENDER QUIZ ---------- */
       function renderQuiz(data) {
-        quizContainer.innerHTML = '' // Clear previous content
+        quizContainer.innerHTML = ""; // Clear previous content
 
         data.forEach((q, qi) => {
-          const card = document.createElement('div')
-          card.className = 'question-card'
-          card.dataset.questionIndex = qi
-          card.dataset.answered = 'false' // Tracks if this specific question has been answered
+          const card = document.createElement("div");
+          card.className = "question-card";
+          card.dataset.questionIndex = qi;
+          card.dataset.answered = "false"; // Tracks if this specific question has been answered
 
           // Assuming JSON 1 format {prompt, choices, correctIndex, explanation}
           card.innerHTML = `
                     <p class="question-title">${qi + 1}. ${q.prompt}</p>
                     <ul class="choices"></ul>
-                    <div class="explanation" hidden></div> `
+                    <div class="explanation" hidden></div> `;
 
-          const ul = card.querySelector('.choices')
+          const ul = card.querySelector(".choices");
 
           q.choices.forEach((choiceText, ci) => {
-            const li = document.createElement('li')
-            li.className = 'choice'
-            li.dataset.isCorrect = ci === q.correctIndex
-            li.innerHTML = `<span class="icon"></span><span>${choiceText}</span>`
-            li.addEventListener('click', () => handleChoice(li, card, q))
-            ul.appendChild(li)
-          })
+            const li = document.createElement("li");
+            li.className = "choice";
+            li.dataset.isCorrect = ci === q.correctIndex;
+            li.innerHTML = `<span class="icon"></span><span>${choiceText}</span>`;
+            li.addEventListener("click", () => handleChoice(li, card, q));
+            ul.appendChild(li);
+          });
 
-          quizContainer.appendChild(card)
-        })
+          quizContainer.appendChild(card);
+        });
       }
 
       /* ---------- HANDLE CHOICE ---------- */
       function handleChoice(selectedElement, card, q) {
-        if (card.dataset.answered === 'true') return // Prevent re-answering
-        card.dataset.answered = 'true'
-        answeredQuestionsCount++
+        if (card.dataset.answered === "true") return; // Prevent re-answering
+        card.dataset.answered = "true";
+        answeredQuestionsCount++;
 
-        const isCorrect = selectedElement.dataset.isCorrect === 'true'
-        selectedElement.classList.add(isCorrect ? 'correct' : 'wrong')
-        selectedElement.querySelector('.icon').textContent = isCorrect
-          ? '✓'
-          : '✗'
+        const isCorrect = selectedElement.dataset.isCorrect === "true";
+        selectedElement.classList.add(isCorrect ? "correct" : "wrong");
+        selectedElement.querySelector(".icon").textContent = isCorrect
+          ? "✓"
+          : "✗";
 
         // If incorrect, highlight the correct answer
         if (!isCorrect) {
-          ;[...card.querySelectorAll('.choice')].forEach(c => {
-            if (c !== selectedElement && c.dataset.isCorrect === 'true') {
-              c.classList.add('correct')
-              c.querySelector('.icon').textContent = '✓'
+          [...card.querySelectorAll(".choice")].forEach((c) => {
+            if (c !== selectedElement && c.dataset.isCorrect === "true") {
+              c.classList.add("correct");
+              c.querySelector(".icon").textContent = "✓";
             }
-          })
+          });
         }
 
         // Display explanation
-        const expEl = card.querySelector('.explanation')
+        const expEl = card.querySelector(".explanation");
         expEl.innerHTML = `
                 <div class="${
-                  isCorrect ? 'feedback-success' : 'feedback-error'
+                  isCorrect ? "feedback-success" : "feedback-error"
                 }" style="margin-bottom: 8px;">
                     ${
                       isCorrect
@@ -491,129 +494,131 @@
                 </div>
                 <div class="${
                   isCorrect
-                    ? 'explanation-content-success'
-                    : 'explanation-content-error'
+                    ? "explanation-content-success"
+                    : "explanation-content-error"
                 }">
-                    ${q.explanation || 'No explanation provided.'}
+                    ${q.explanation || "No explanation provided."}
                 </div>
-            `
-        expEl.hidden = false
+            `;
+        expEl.hidden = false;
 
         // Check if all questions are answered
         if (answeredQuestionsCount === totalQuestions) {
-          handleCompletion()
+          handleCompletion();
         }
       }
 
       /* ---------- ON COMPLETION ---------- */
       function handleCompletion() {
         // Determine if there's a next quiz in the sequence
-        const hasNextQuiz = currentQuizIndex + 1 < QUIZ_FILES_SEQUENCE.length
+        const hasNextQuiz = currentQuizIndex + 1 < QUIZ_FILES_SEQUENCE.length;
 
         if (hasNextQuiz) {
-          tryBtn.textContent = 'Next Quiz'
-          tryBtn.style.display = 'block' // Show "Next Quiz" button
-          congratsMessage.style.display = 'none' // Hide congratulations message
+          tryBtn.textContent = "Next Quiz";
+          tryBtn.style.display = "block"; // Show "Next Quiz" button
+          congratsMessage.style.display = "none"; // Hide congratulations message
         } else {
           // This is the last quiz
-          tryBtn.style.display = 'none' // Hide the button
-          congratsMessage.style.display = 'block' // Show the final congratulations
+          tryBtn.style.display = "none"; // Hide the button
+          congratsMessage.style.display = "block"; // Show the final congratulations
         }
 
         // Scroll the button (or the congrats message) into view
         // Use setTimeout to ensure display:block has rendered
         setTimeout(() => {
-          if (tryBtn.style.display === 'block') {
-            tryBtn.scrollIntoView({ behavior: 'smooth', block: 'center' })
-          } else if (congratsMessage.style.display === 'block') {
+          if (tryBtn.style.display === "block") {
+            tryBtn.scrollIntoView({ behavior: "smooth", block: "center" });
+          } else if (congratsMessage.style.display === "block") {
             congratsMessage.scrollIntoView({
-              behavior: 'smooth',
-              block: 'center'
-            })
+              behavior: "smooth",
+              block: "center",
+            });
           }
-        }, 150)
+        }, 150);
 
         // Optional: Update general quiz completion counter
-        let count = parseInt(localStorage.getItem(QUIZ_COUNT_KEY)) || 0
-        count++
-        localStorage.setItem(QUIZ_COUNT_KEY, count)
+        let count = parseInt(localStorage.getItem(QUIZ_COUNT_KEY)) || 0;
+        count++;
+        localStorage.setItem(QUIZ_COUNT_KEY, count);
       }
 
       /* ---------- NEXT QUIZ BUTTON CLICK HANDLER ---------- */
-      tryBtn.addEventListener('click', () => {
+      tryBtn.addEventListener("click", () => {
         // First, ensure all questions in the current quiz have been answered
         if (answeredQuestionsCount < totalQuestions) {
           alert(
-            'Please answer all questions first before proceeding to the next quiz.'
-          )
+            "Please answer all questions first before proceeding to the next quiz."
+          );
           console.log(
-            'DEBUG: Next Quiz button clicked, but not all questions answered. currentQuizIndex will NOT increment.'
-          )
-          return // Stop execution
+            "DEBUG: Next Quiz button clicked, but not all questions answered. currentQuizIndex will NOT increment."
+          );
+          return; // Stop execution
         }
 
         console.log(
-          'DEBUG: Before increment - currentQuizIndex:',
+          "DEBUG: Before increment - currentQuizIndex:",
           currentQuizIndex
-        )
-        currentQuizIndex++ // Increment the index for the next quiz
+        );
+        currentQuizIndex++; // Increment the index for the next quiz
         console.log(
-          'DEBUG: After increment - currentQuizIndex:',
+          "DEBUG: After increment - currentQuizIndex:",
           currentQuizIndex
-        )
+        );
 
         // Store the new currentQuizIndex in local storage for persistence
-        localStorage.setItem(CURRENT_QUIZ_INDEX_KEY, currentQuizIndex)
+        localStorage.setItem(CURRENT_QUIZ_INDEX_KEY, currentQuizIndex);
         console.log(
-          'DEBUG: currentQuizIndex saved to localStorage as:',
+          "DEBUG: currentQuizIndex saved to localStorage as:",
           localStorage.getItem(CURRENT_QUIZ_INDEX_KEY)
-        )
+        );
 
         // Check if there are more quizzes in the sequence
         if (currentQuizIndex < QUIZ_FILES_SEQUENCE.length) {
           // Load the next quiz in the sequence
-          loadQuiz(QUIZ_FILES_SEQUENCE[currentQuizIndex])
+          loadQuiz(QUIZ_FILES_SEQUENCE[currentQuizIndex]);
         } else {
           // No more quizzes: display final congratulations and hide button
-          tryBtn.style.display = 'none'
-          congratsMessage.style.display = 'block'
+          tryBtn.style.display = "none";
+          congratsMessage.style.display = "block";
           congratsMessage.scrollIntoView({
-            behavior: 'smooth',
-            block: 'center'
-          })
+            behavior: "smooth",
+            block: "center",
+          });
           // Reset quiz index if all quizzes are completed (optional, for restarting flow)
           // localStorage.setItem(CURRENT_QUIZ_INDEX_KEY, 0); // Uncomment to reset to first quiz after completion
         }
 
         // Optional: Track which specific quiz pages have been completed
         let completed =
-          JSON.parse(localStorage.getItem(COMPLETED_QUIZZES_LIST_KEY)) || []
+          JSON.parse(localStorage.getItem(COMPLETED_QUIZZES_LIST_KEY)) || [];
         // We store the index of the quiz just completed (currentQuizIndex - 1)
         if (
           !completed.includes(currentQuizIndex - 1) &&
           currentQuizIndex - 1 >= 0
         ) {
-          completed.push(currentQuizIndex - 1)
+          completed.push(currentQuizIndex - 1);
         }
         localStorage.setItem(
           COMPLETED_QUIZZES_LIST_KEY,
           JSON.stringify(completed)
-        )
-      })
+        );
+      });
 
       /* ---------- SHUFFLE ARRAY (for questions) ---------- */
       function shuffleArray(array) {
-        let arr = array.slice() // Create a shallow copy to avoid modifying original array
+        let arr = array.slice(); // Create a shallow copy to avoid modifying original array
         for (let i = arr.length - 1; i > 0; i--) {
-          const j = Math.floor(Math.random() * (i + 1))
-          ;[arr[i], arr[j]] = [arr[j], arr[i]] // ES6 swap
+          const j = Math.floor(Math.random() * (i + 1));
+          [arr[i], arr[j]] = [arr[j], arr[i]]; // ES6 swap
         }
-        return arr
+        return arr;
       }
-  window.addEventListener('load', function() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-        </script>
 
-    </body>
+      window.addEventListener("load", () => {
+        document.documentElement.scrollTop = 0; // For most modern browsers (Chrome, Firefox, Edge)
+        document.body.scrollTop = 0; // For older browsers and Safari
+      });
+      
+    </script>
+  </body>
 </html>
