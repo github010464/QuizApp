@@ -134,7 +134,6 @@
         color: #28a745;
         font-weight: bold;
         margin-bottom: 8px;
-        /* background-color: #f0fff0; */
         border-radius: 5px;
       }
 
@@ -142,7 +141,6 @@
         color: #dc3545;
         font-weight: bold;
         margin-bottom: 8px;
-        /* background-color: #fff0f0; */
         border-radius: 5px;
       }
 
@@ -195,6 +193,7 @@
       }
 
       .floating-home {
+        display: block !important;
         position: fixed;
         bottom: 16px;
         right: 16px;
@@ -322,12 +321,12 @@
           font-size: 0.95em;
         }
       }
-    </style>
+        </style>
     </head>
 
     <body>
         <a href="index.html" class="floating-home" title="Go Home">
-            <i class="fa-solid fa-house" style="z-index: 1000"></i>
+            <i class="fa-solid fa-house"></i>
         </a>
         <h3 class="title-header">Subject–Verb Agreement Quiz</h3>
 
@@ -611,12 +610,7 @@
         }
         return arr
       }
-    </script>
+        </script>
 
-        <!-- <script>
-    // This script should run when the home page loads
-    localStorage.removeItem("currentQuizIndex");
-    console.log("DEBUG: currentQuizIndex cleared from localStorage on home page load.");
-</script> -->
     </body>
 </html>
