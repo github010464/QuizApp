@@ -614,27 +614,26 @@
         return arr;
       }
 
-  window.history.scrollRestoration = 'manual';
+      window.history.scrollRestoration = "manual";
 
-  function forceScrollTop() {
-    if (location.hash) {
-      history.replaceState(null, null, location.pathname);
-    }
+      function forceScrollTop() {
+        if (location.hash) {
+          history.replaceState(null, null, location.pathname);
+        }
 
-    // Blur any focused element
-    if (document.activeElement) {
-      document.activeElement.blur();
-    }
+        // Blur any focused element
+        if (document.activeElement) {
+          document.activeElement.blur();
+        }
 
-    // Multiple forced scrolls
-    setTimeout(() => window.scrollTo(0, 0), 0);
-    setTimeout(() => window.scrollTo(0, 0), 100);
-    setTimeout(() => window.scrollTo(0, 0), 300);
-    setTimeout(() => window.scrollTo(0, 0), 500);
-  }
+        // Multiple forced scrolls
+        setTimeout(() => window.scrollTo(0, 0), 0);
+        setTimeout(() => window.scrollTo(0, 0), 100);
+        setTimeout(() => window.scrollTo(0, 0), 300);
+        setTimeout(() => window.scrollTo(0, 0), 500);
+      }
 
-  window.addEventListener('load', forceScrollTop);
-
+      window.addEventListener("load", forceScrollTop);
     </script>
   </body>
 </html>
