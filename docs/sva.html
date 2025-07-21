@@ -211,6 +211,7 @@
         line-height: 48px;
         text-decoration: none;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+        visibility: hidden;
         z-index: 9999;
         transition: background 0.3s ease, transform 0.2s ease;
       }
@@ -614,26 +615,31 @@
         return arr;
       }
 
-      window.history.scrollRestoration = "manual";
-
-      function forceScrollTop() {
-        if (location.hash) {
-          history.replaceState(null, null, location.pathname);
-        }
-
-        // Blur any focused element
-        if (document.activeElement) {
-          document.activeElement.blur();
-        }
-
-        // Multiple forced scrolls
-        setTimeout(() => window.scrollTo(0, 0), 0);
-        setTimeout(() => window.scrollTo(0, 0), 100);
-        setTimeout(() => window.scrollTo(0, 0), 300);
-        setTimeout(() => window.scrollTo(0, 0), 500);
+      // Prevent the browser from restoring the previous scroll position
+      if ("scrollRestoration" in history) {
+        history.scrollRestoration = "manual";
       }
 
-      window.addEventListener("load", forceScrollTop);
+      function scrollToTopAndShowButton() {
+        // Scroll to top
+        window.scrollTo(0, 0);
+
+        // Show the floating home button (if it exists)
+        const btn = document.querySelector(".floating-home");
+        if (btn) btn.style.visibility = "visible";
+      }
+
+      // Scroll to top on full load
+      window.addEventListener("load", () => {
+        scrollToTopAndShowButton();
+      });
+
+      // Also handle page restore from back-forward cache
+      window.addEventListener("pageshow", (event) => {
+        if (event.persisted) {
+          scrollToTopAndShowButton();
+        }
+      });
     </script>
   </body>
 </html>
