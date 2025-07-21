@@ -194,7 +194,7 @@
 
       .floating-home {
         display: block !important;
-        position: fixed !important;
+        position: fixed;
         bottom: 16px;
         right: 16px;
         width: 48px;
@@ -208,7 +208,7 @@
         line-height: 48px;
         text-decoration: none;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
-        z-index: 9999 !important;
+        z-index: 9999;
         transition: background 0.3s ease, transform 0.2s ease;
       }
 
@@ -610,6 +610,12 @@
         }
         return arr
       }
+
+
+window.onload = function() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+};
+
         </script>
 
     </body>
