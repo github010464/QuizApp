@@ -104,40 +104,5 @@
     "choices": ["has", "have"],
     "correctIndex": 0,
     "explanation": "Indefinite pronouns like everyone, somebody, nothing (Rule 8). All require a singular verb."
-  },
-  {
-    "seqNo": 16,
-    "prompt": "Neither the players nor the coach ____ happy with the results.",
-    "choices": ["is", "are"],
-    "correctIndex": 0,
-    "explanation": "Subjects with either or, either nor (Rule 2). The verb agrees with the subject closer to it."
-  },
-  {
-    "seqNo": 17,
-    "prompt": "Most of the cookies ____ gone",
-    "choices": ["is", "are"],
-    "correctIndex": 1,
-    "explanation": "Quantifiers: All, some, most, a lot, plenty, any, none, more, enough (Rule 9). The verb agrees with the noun that follows."
-  },
-  {
-    "seqNo": 18,
-    "prompt": "The news ____ spreading quickly.",
-    "choices": ["is", "are"],
-    "correctIndex": 0,
-    "explanation": "Nouns ending 's' (Rule 3). Some nouns look plural but they are not."
-  },
-  {
-    "seqNo": 19,
-    "prompt": "The bouquet of roses ____ lovely .",
-    "choices": ["is", "are"],
-    "correctIndex": 0,
-    "explanation": "Nouns that refer to many items (Rule 5). Require a singular verb."
-  },
-  {
-    "seqNo": 20,
-    "prompt": "The guide, as well as the tourists, ____ amazed by the scenery.",
-    "choices": ["was", "were"],
-    "correctIndex": 0,
-    "explanation": "Conjunctions 'as well as', 'together with', 'along with', (Rule 7). The verb agrees with the main subject, not with the additional phrase."
   }
 ]
