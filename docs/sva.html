@@ -614,17 +614,28 @@
         return arr;
       }
 
-    window.history.scrollRestoration = 'manual';
+    <script>
+  window.history.scrollRestoration = 'manual';
 
-  // Try multiple times to force scroll to top
   function forceScrollTop() {
-    setTimeout(() => window.scrollTo(0, 0), 0);        // Immediately after load
-    setTimeout(() => window.scrollTo(0, 0), 100);      // Short delay
-    setTimeout(() => window.scrollTo(0, 0), 300);      // Slightly longer
-    setTimeout(() => window.scrollTo(0, 0), 500);      // Just in case
+    if (location.hash) {
+      history.replaceState(null, null, location.pathname);
+    }
+
+    // Blur any focused element
+    if (document.activeElement) {
+      document.activeElement.blur();
+    }
+
+    // Multiple forced scrolls
+    setTimeout(() => window.scrollTo(0, 0), 0);
+    setTimeout(() => window.scrollTo(0, 0), 100);
+    setTimeout(() => window.scrollTo(0, 0), 300);
+    setTimeout(() => window.scrollTo(0, 0), 500);
   }
 
   window.addEventListener('load', forceScrollTop);
+</script>
 
     </script>
   </body>
