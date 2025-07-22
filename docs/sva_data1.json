@@ -1,0 +1,16 @@
+[
+  {
+    "seqNo": 1,
+    "prompt": "Spaghetti and meatballs ____ Tifanny's favorite meal.",
+    "choices": ["is", "are", "was", "were"],
+    "correctIndex": 0,
+    "explanation": "This is an example of how a noun that looks plural can act as singular. Even with the meatballs, it's a singular dish."
+  },
+  {
+    "seqNo": 2,
+    "prompt": "One percent of the students ____ Spanish each year.",
+    "choices": ["fails", "fail", "failed", "failing"],
+    "correctIndex": 1,
+    "explanation": "Don't distracted by the 'one' in 'one percent'. This is not the same thing as 'one' by itself."
+  }
+]
