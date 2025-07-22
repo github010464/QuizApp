@@ -12,5 +12,19 @@
     "choices": ["fails", "fail", "failed", "failing"],
     "correctIndex": 1,
     "explanation": "Don't distracted by the 'one' in 'one percent'. This is not the same thing as 'one' by itself."
+  },
+  {
+    "seqNo": 3,
+    "prompt": "Because of the blizzard, a number of local businesses ____ closed yesterday.",
+    "choices": ["is", "are", "was", "were"],
+    "correctIndex": 3,
+    "explanation": "Sometimes people see the word 'number' and think, Aha! A singular noun requires a singular verb. But 'number' with the word 'a' in front of it refers to a plural quantity. It sounds bizarre to try to combine it with a singular verb."
+  },
+  {
+    "seqNo": 4,
+    "prompt": "The majority of the children ____ already finished their chocolate bars.",
+    "choices": ["has", "have", "was", "were"],
+    "correctIndex": 1,
+    "explanation": "When 'majority' is followed by a plural countable noun, use a plural verb. Here’s an example where you do not have a plural countable noun, and the writer uses a singular verb instead: The majority of the cheese is spoiled."
   }
 ]
