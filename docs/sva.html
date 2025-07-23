@@ -1,598 +1,631 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SVA Quiz</title>
-    <!-- Google Fonts & Font Awesome -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css?display=swap"
-      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
 
-    <style>
-      /* Body styles */
-      body {
-        font-family: monospace, Arial, sans-serif;
-        background-color: #f4f4f4;
-        display: flex;
-        flex-direction: column;
-        /* align-items: center; */     align-items: left; 
-        padding: 20px;
-        margin: 0;
-        min-height: 100vh;
-        overflow-y: auto;
-        scroll-behavior: smooth;
-      }
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>SVA Quiz</title>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+            rel="stylesheet" />
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css?display=swap"
+            integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-      /* Container for quiz questions */
-      #quizContainer {
-        width: 100%;
-        max-width: 700px;
-        border-radius: 8px;
-        box-sizing: border-box;
-        min-height: 60vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-      }
-
-      .title-header {
-        text-align: left;
-        margin-bottom: 15px;
-        font-size: 16px;
-      }
-
-      .title-header:hover {
-        color: green;
-      }
-
-      /* Question card styling */
-      .question-card {
-        background-color: #ffffff;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        padding: 20px;
-        margin-bottom: 20px;
-        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
-      }
-
-      /* Question title */
-      .question-title {
-        font-size: 1em;
-        font-weight: bold;
-        margin-top: 0;
-        margin-bottom: 15px;
-        color: #333;
-      }
-
-      /* Choices list */
-      .choices,
-      .options {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-      }
-
-      /* Choice items */
-      .choice,
-      .choice-item {
-        background-color: #eef;
-        border: 1px solid #dcdcdc;
-        border-radius: 5px;
-        padding: 12px 15px;
-        margin-bottom: 10px;
-        cursor: pointer;
-        transition: background-color 0.3s ease, border-color 0.3s ease;
-        display: flex;
-        align-items: center;
-      }
-
-      /* Hover effects for choices */
-      .choice:hover,
-      .choice-item:hover:not(.correct):not(.wrong) {
-        background-color: #e0e0ff;
-      }
-
-      /* Correct choice styling */
-      .choice.correct,
-      .choice-item.correct {
-        background-color: #d4edda;
-        border-color: #28a745;
-        color: #155724;
-      }
-
-      /* Wrong choice styling */
-      .choice.wrong,
-      .choice-item.wrong {
-        background-color: #f8d7da;
-        border-color: #dc3545;
-        color: #721c24;
-      }
-
-      /* Icon in choices */
-      .choice .icon {
-        margin-right: 10px;
-        font-weight: bold;
-        font-size: 1.1em;
-      }
-
-      /* Explanation section */
-      .explanation {
-        margin-top: 15px;
-        border-radius: 15px;
-        width: 100%;
-      }
-      .explanation-label {
-        font-weight: bold;
-        margin-top: 8px;
-        margin-bottom: 4px;
-      }
-      .explanation-content-success {
-        background-color: #e2f0d9;
-        border: 1px solid #a8d591;
-        color: #386d22;
-        padding: 10px;
-        border-radius: 5px;
-        font-size: 14px;
-      }
-      .explanation-content-error {
-        background-color: #fce4e4;
-        border: 1px solid #f0b0b0;
-        color: #8c2f2f;
-        padding: 10px;
-        border-radius: 5px;
-      }
-
-      /* Feedback message styles */
-      .feedback-success {
-        color: #28a745;
-        font-weight: bold;
-        margin-bottom: 8px;
-        border-radius: 5px;
-      }
-      .feedback-error {
-        color: #dc3545;
-        font-weight: bold;
-        margin-bottom: 8px;
-        border-radius: 5px;
-      }
-
-      /* Container for quiz actions (buttons, messages) */
-      .quiz-actions-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: flex-end;
-        max-width: 700px;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 0;
-        box-sizing: border-box;
-        width: 100%;
-      }
-
-      /* Next quiz button styling */
-      #tryNewQuizBtn {
-        display: none;
-        width: auto;
-        font-family: "Roboto", Arial, sans-serif;
-        padding: 8px 18px;
-        background-color: green;
-        color: #eee;
-        font-size: 0.9rem;
-        font-weight: 500;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        text-align: center;
-        margin-bottom: 20px;
-        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
-        transition: background-color 0.2s ease;
-      }
-      #tryNewQuizBtn:hover {
-        background-color: #0b320d;
-      }
-
-      /* Congratulations message styling */
-      #congratsMessage {
-        display: none;
-        margin-top: 12px;
-        padding: 12px;
-        background-color: #d4edda;
-        border: 1px solid #28a745;
-        color: #155724;
-        border-radius: 8px;
-        font-size: 1em;
-        text-align: center;
-        width: 100%;
-        box-sizing: border-box;
-      }
-
-      /* Floating home icon styles - positioned at the top right */
-      .floating-home {
-        position: fixed;
-        top: 16px;
-        right: 16px;
-        width: 48px;
-        height: 48px;        
-        line-height: 48px;
-        background: green;
-        color: whitesmoke;
-        font-size: 22px;
-        padding: 0;
-        border-radius: 50%;
-        text-align: center;
-        text-decoration: none;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
-        z-index: 9999;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: background 0.3s ease, transform 0.2s ease;
-      }
-      .floating-home:hover {
-        background: #555;
-        transform: scale(1.1);
-      }
-
-      /* Responsive adjustments for smaller devices */
-      
-      @media (max-width: 480px) {   
-         .floating-home {
-          bottom: 12px;
-          right: 12px;
-          width: 36px;
-          height: 36px;
-          font-size: 18px;
-          line-height: 36px;
-          margin: 10px 10px 10px;
-        }
-        .title-header {
-            text-align: left;
-            margin-left: 10px;
-        }
-      }
-
-      /* Larger screens adjustments */
-      @media (min-width: 768px) {
+        <style>
+        /* Body styles */
         body {
-          padding: 24px;
+            font-family: monospace, Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* Center the main content horizontally */
+            padding: 20px;
+            margin: 0;
+            min-height: 100vh;
+            overflow-y: auto;
+            scroll-behavior: smooth;
         }
-        #quizContainer{
-          max-width: 100%;
+
+        /* Header Container for title and home icon */
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            /* Pushes children to far ends */
+            align-items: flex-start;
+            /* Vertically aligns items */
+            width: 100%;
+            /* max-width: 700px; */
+            /* Match quiz container width */
+            margin-bottom: 20px;
+            /* Space between header and quiz box */
+            padding: 0 10px;
+            /* Add some horizontal padding for spacing */
+            box-sizing: border-box;
+            /* Include padding in width calculation */
         }
+
+        /* Container for quiz questions */
+        #quizContainer {
+            width: 100%;
+            max-width: 700px;
+            border-radius: 8px;
+            box-sizing: border-box;
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
         .title-header {
-          margin-bottom: 24px;
-          font-size: 32px;
-          margin-top: 0; 
-          margin-left: 10px;
+            margin: 0;
+            /* Remove default margin from h3 */
+            font-size: 1.8em;
+            color: #333;
         }
+
+        .title-header:hover {
+            color: green;
+        }
+
+        /* Question card styling */
+        .question-card {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Question title */
         .question-title {
-          margin-bottom: 12px;
+            font-size: 1em;
+            font-weight: bold;
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: #333;
         }
-        .floating-home{
-        margin-right: 10px;
+
+        /* Choices list */
+        .choices,
+        .options {
+            list-style: none;
+            padding: 0;
+            margin: 0;
         }
-      }
+
+        /* Choice items */
+        .choice,
+        .choice-item {
+            background-color: #eef;
+            border: 1px solid #dcdcdc;
+            border-radius: 5px;
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Hover effects for choices */
+        .choice:hover,
+        .choice-item:hover:not(.correct):not(.wrong) {
+            background-color: #e0e0ff;
+        }
+
+        /* Correct choice styling */
+        .choice.correct,
+        .choice-item.correct {
+            background-color: #d4edda;
+            border-color: #28a745;
+            color: #155724;
+        }
+
+        /* Wrong choice styling */
+        .choice.wrong,
+        .choice-item.wrong {
+            background-color: #f8d7da;
+            border-color: #dc3545;
+            color: #721c24;
+        }
+
+        /* Icon in choices */
+        .choice .icon {
+            margin-right: 10px;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        /* Explanation section */
+        .explanation {
+            margin-top: 15px;
+            border-radius: 15px;
+            width: 100%;
+        }
+
+        .explanation-label {
+            font-weight: bold;
+            margin-top: 8px;
+            margin-bottom: 4px;
+        }
+
+        .explanation-content-success {
+            background-color: #e2f0d9;
+            border: 1px solid #a8d591;
+            color: #386d22;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .explanation-content-error {
+            background-color: #fce4e4;
+            border: 1px solid #f0b0b0;
+            color: #8c2f2f;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        /* Feedback message styles */
+        .feedback-success {
+            color: #28a745;
+            font-weight: bold;
+            margin-bottom: 8px;
+            border-radius: 5px;
+        }
+
+        .feedback-error {
+            color: #dc3545;
+            font-weight: bold;
+            margin-bottom: 8px;
+            border-radius: 5px;
+        }
+
+        /* Container for quiz actions (buttons, messages) */
+        .quiz-actions-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 0;
+            box-sizing: border-box;
+            width: 100%;
+        }
+
+        /* Next quiz button styling */
+        #tryNewQuizBtn {
+            display: none;
+            width: auto;
+            font-family: "Roboto", Arial, sans-serif;
+            padding: 8px 18px;
+            background-color: green;
+            color: #eee;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+            transition: background-color 0.2s ease;
+        }
+
+        #tryNewQuizBtn:hover {
+            background-color: #0b320d;
+        }
+
+        /* Congratulations message styling */
+        #congratsMessage {
+            display: none;
+            margin-top: 12px;
+            padding: 12px;
+            background-color: #d4edda;
+            border: 1px solid #28a745;
+            color: #155724;
+            border-radius: 8px;
+            font-size: 1em;
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Floating home icon styles */
+        .floating-home {
+            color: #fff;
+            font-size: 1.5em;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            background-color: #28a745;
+            width: 36px;
+            height: 36px;
+            line-height: 36px;
+            text-align: center;
+            border-radius: 50%;
+        }
+
+        .floating-home:hover {
+            color: #0056b3;
+        }
+
+        /* Responsive adjustments for smaller devices */
+        @media (max-width: 480px) {
+            .header-container {
+                padding: 0 5px; /* Reduce padding for smaller screens */
+            }
+
+            .title-header {
+                font-size: 20px;
+            }
+
+            .floating-home {
+                font-size: 1.2em;
+            }
+        }
+
+        /* Larger screens adjustments */
+        @media (min-width: 768px) {
+            body {
+                padding: 24px;
+            }
+
+            #quizContainer {
+                max-width: 100%;
+            }
+
+            .title-header {
+                font-size: 2.2em;
+            }
+
+            .floating-home {
+                font-size: 1.1em;
+            }
+        @media (min-width: 1024px){
+            .header-container, #quizContainer{
+                max-width: 700px;
+                }
+            .floating-home {
+                font-size: 1.1em;
+            }
+            }
+        }
     </style>
-  
+
     </head>
-  <body>
-    
-    <h3 class="title-header">Subject–Verb Agreement Quiz</h3>
 
-    <!-- Floating Home Icon -->
-    <a href="index.html" class="floating-home" title="Go Home">
-      <i class="fa-solid fa-house"></i>
-    </a>
+    <body>
+        <div class="header-container">
+            <h3 class="title-header">Subject–Verb Agreement Quiz</h3>
+            <a href="index.html" class="floating-home" title="Go Home">
+                <i class="fa-solid fa-house"></i>
+            </a>
+        </div>
 
-    <div id="quizContainer">Loading quiz...</div>
+        <div id="quizContainer">Loading quiz...</div>
 
-    <div class="quiz-actions-container">
-      <button id="tryNewQuizBtn">Next Quiz</button>
-      <div id="congratsMessage">
-        🎉 Congratulations! You've completed all quizzes! 🎉
-      </div>
-    </div>
+        <div class="quiz-actions-container">
+            <div id="congratsMessage">
+            </div>
+            <button id="tryNewQuizBtn">Next Quiz</button>
+        </div>
 
-    <script>
-      /* ---------- GLOBAL VARIABLES ---------- */
-      let quizData = []; // Stores the current quiz's questions
-      let totalQuestions = 0; // Total questions in the current quiz
-      let answeredQuestionsCount = 0; // Questions answered in the current quiz
+<script>
+        /* ---------- GLOBAL VARIABLES ---------- */
+        let quizData = []; // Stores the current quiz's questions
+        let totalQuestions = 0; // Total questions in the current quiz
+        let answeredQuestionsCount = 0; // Questions *attempted* in the current quiz
+        let correctAnswersCount = 0; // Questions *correctly* answered in the current quiz
 
-      // Local Storage Keys
-      const QUIZ_COUNT_KEY = "completedQuizCount"; // General counter (optional)
-      const COMPLETED_QUIZZES_LIST_KEY = "completedQuizPages"; // To track which specific quizzes are done optional)
-      const CURRENT_QUIZ_INDEX_KEY = "currentQuizIndex"; // Crucial for progression
-      localStorage.setItem(CURRENT_QUIZ_INDEX_KEY, 0);
+        // Local Storage Keys
+        const QUIZ_COUNT_KEY = "completedQuizCount"; // General counter (optional)
+        const COMPLETED_QUIZZES_LIST_KEY = "completedQuizPages"; // To track which specific quizzes are done (optional)
+        const CURRENT_QUIZ_INDEX_KEY = "currentQuizIndex"; // Crucial for progression
 
-      // DOM Elements
-      const tryBtn = document.getElementById("tryNewQuizBtn");
-      const quizContainer = document.getElementById("quizContainer");
-      const congratsMessage = document.getElementById("congratsMessage");
+        // DOM Elements
+        const tryBtn = document.getElementById("tryNewQuizBtn");
+        const quizContainer = document.getElementById("quizContainer");
+        const congratsMessage = document.getElementById("congratsMessage");
 
-      // Quiz Sequence Definition
-      // IMPORTANT: List all your quiz JSON files in order here.
-      // Example: If you have sva1.json, sva2.json, sva3.json, etc.
-      const QUIZ_FILES_SEQUENCE = [
-        "sva1.json",
-        "sva2.json",
-        "sva3.json",
-        "sva4.json",
-      ]; // Add all your quiz files here!
+        // Quiz Sequence Definition
+        // IMPORTANT: List all your quiz JSON files in order here.
+        const QUIZ_FILES_SEQUENCE = [
+            "sva1.json",
+            "sva2.json",
+            "sva3.json",
+            "sva4.json",
+        ]; // Add all your quiz files here!
 
-      // Retrieve current quiz index from local storage, default to 0 (for 1st quiz in sequence)
-      // If localStorage is empty or invalid, start from the very first quiz (index 0).
-      let currentQuizIndex = parseInt(
-        localStorage.getItem(CURRENT_QUIZ_INDEX_KEY)
-      );
-      if (
-        isNaN(currentQuizIndex) ||
-        currentQuizIndex < 0 ||
-        currentQuizIndex >= QUIZ_FILES_SEQUENCE.length
-      ) {
-        currentQuizIndex = 0; // Default to the first quiz
-        localStorage.setItem(CURRENT_QUIZ_INDEX_KEY, currentQuizIndex); // Store the default
-      }
+        // Retrieve current quiz index from local storage, default to 0 (for 1st quiz in sequence)
+        let currentQuizIndex = parseInt(
+            localStorage.getItem(CURRENT_QUIZ_INDEX_KEY)
+        );
 
-      /* ---------- INIT ---------- */
-      // Load the initial quiz based on the currentQuizIndex
-      loadQuiz(QUIZ_FILES_SEQUENCE[currentQuizIndex]);
+        // If localStorage is empty or invalid, start from the very first quiz (index 0).
+        if (
+            isNaN(currentQuizIndex) ||
+            currentQuizIndex < 0 ||
+            currentQuizIndex >= QUIZ_FILES_SEQUENCE.length
+        ) {
+            currentQuizIndex = 0; // Default to the first quiz
+            localStorage.setItem(CURRENT_QUIZ_INDEX_KEY, currentQuizIndex); // Store the default
+        }
 
-      /* ---------- LOAD QUIZ DATA ---------- */
-      function loadQuiz(filename) {
-        console.log(`Attempting to load quiz: ${filename}`); // Debugging
-        fetch(filename)
-          .then((res) => {
-            if (!res.ok) {
-              // If response is not OK (e.g., 404 Not Found, 500 Internal Server Error)
-              throw new Error(
-                `HTTP error! Status: ${res.status} for ${filename}`
-              );
-            }
-            return res.json();
-          })
-          .then((data) => {
-            if (data.length === 0) {
-              console.warn(`Quiz data for ${filename} is empty.`);
-              quizContainer.textContent = "Quiz is empty or invalid.";
-              tryBtn.style.display = "none";
-              congratsMessage.style.display = "none";
-              return;
-            }
-            quizData = shuffleArray(data); // Shuffle questions
-            totalQuestions = quizData.length;
-            answeredQuestionsCount = 0; // Reset for new quiz
-            tryBtn.style.display = "none"; // Hide button until this quiz is completed
-            congratsMessage.style.display = "none"; // Hide congrats message on new quiz load
-            renderQuiz(quizData); // Display the loaded quiz
-            window.scrollTo({ top: 0, behavior: "smooth" }); // Scroll to top for new quiz
-          })
-          .catch((err) => {
-            // Display a user-friendly error message
-            quizContainer.innerHTML = `<p style="color: red;">Failed to load quiz: ${filename}. Please check the file path and JSON format.</p>`;
-            console.error("Error loading quiz data:", err); // Log full error for debugging
-            tryBtn.style.display = "none"; // Ensure button is hidden
-            congratsMessage.style.display = "none"; // Ensure congrats is hidden
-          });
-      }
+        /* ---------- INIT ---------- */
+        // Load the initial quiz based on the currentQuizIndex
+        loadQuiz(QUIZ_FILES_SEQUENCE[currentQuizIndex]);
 
-      /* ---------- RENDER QUIZ ---------- */
-      function renderQuiz(data) {
-        quizContainer.innerHTML = ""; // Clear previous content
+        /* ---------- LOAD QUIZ DATA ---------- */
+        function loadQuiz(filename) {
+            console.log(`Attempting to load quiz: ${filename}`); // Debugging
+            fetch(filename)
+                .then((res) => {
+                    if (!res.ok) {
+                        // If response is not OK (e.g., 404 Not Found, 500 Internal Server Error)
+                        throw new Error(
+                            `HTTP error! Status: ${res.status} for ${filename}`
+                        );
+                    }
+                    return res.json();
+                })
+                .then((data) => {
+                    if (data.length === 0) {
+                        console.warn(`Quiz data for ${filename} is empty.`);
+                        quizContainer.textContent = "Quiz is empty or invalid.";
+                        tryBtn.style.display = "none"; // Ensure button is hidden for empty quiz
+                        congratsMessage.style.display = "none";
+                        return;
+                    }
+                    quizData = shuffleArray(data); // Shuffle questions
+                    totalQuestions = quizData.length;
+                    answeredQuestionsCount = 0; // Reset for new quiz
+                    correctAnswersCount = 0; // Reset correct answers count for new quiz
+                    tryBtn.style.display = "none"; // Hide button until this quiz is completed
+                    congratsMessage.style.display = "none"; // Hide congrats message on new quiz load
+                    renderQuiz(quizData); // Display the loaded quiz
+                    window.scrollTo({ top: 0, behavior: "smooth" }); // Scroll to top for new quiz
+                })
+                .catch((err) => {
+                    // Display a user-friendly error message
+                    quizContainer.innerHTML = `<p style="color: red;">Failed to load quiz: ${filename}. Please check the file path and JSON format.</p>`;
+                    console.error("Error loading quiz data:", err); // Log full error for debugging
+                    tryBtn.style.display = "none"; // Ensure button is hidden
+                    congratsMessage.style.display = "none"; // Ensure congrats is hidden
+                });
+        }
 
-        data.forEach((q, qi) => {
-          const card = document.createElement("div");
-          card.className = "question-card";
-          card.dataset.questionIndex = qi;
-          card.dataset.answered = "false"; // Tracks if this specific question has been answered
+        /* ---------- RENDER QUIZ ---------- */
+        function renderQuiz(data) {
+            quizContainer.innerHTML = ""; // Clear previous content
 
-          // Assuming JSON 1 format {prompt, choices, correctIndex, explanation}
-          card.innerHTML = `
+            data.forEach((q, qi) => {
+                const card = document.createElement("div");
+                card.className = "question-card";
+                card.dataset.questionIndex = qi;
+                card.dataset.answered = "false"; // Tracks if this specific question has been answered
+
+                // Assuming JSON 1 format {prompt, choices, correctIndex, explanation}
+                card.innerHTML = `
                     <p class="question-title">${qi + 1}. ${q.prompt}</p>
                     <ul class="choices"></ul>
                     <div class="explanation" hidden></div> `;
 
-          const ul = card.querySelector(".choices");
+                const ul = card.querySelector(".choices");
 
-          q.choices.forEach((choiceText, ci) => {
-            const li = document.createElement("li");
-            li.className = "choice";
-            li.dataset.isCorrect = ci === q.correctIndex;
-            li.innerHTML = `<span class="icon"></span><span>${choiceText}</span>`;
-            li.addEventListener("click", () => handleChoice(li, card, q));
-            ul.appendChild(li);
-          });
+                q.choices.forEach((choiceText, ci) => {
+                    const li = document.createElement("li");
+                    li.className = "choice";
+                    li.dataset.isCorrect = ci === q.correctIndex;
+                    li.innerHTML = `<span class="icon"></span><span>${choiceText}</span>`;
+                    li.addEventListener("click", () => handleChoice(li, card, q));
+                    ul.appendChild(li);
+                });
 
-          quizContainer.appendChild(card);
-        });
-      }
-
-      /* ---------- HANDLE CHOICE ---------- */
-      function handleChoice(selectedElement, card, q) {
-        if (card.dataset.answered === "true") return; // Prevent re-answering
-        card.dataset.answered = "true";
-        answeredQuestionsCount++;
-
-        const isCorrect = selectedElement.dataset.isCorrect === "true";
-        selectedElement.classList.add(isCorrect ? "correct" : "wrong");
-        selectedElement.querySelector(".icon").textContent = isCorrect
-          ? "✓"
-          : "✗";
-
-        // If incorrect, highlight the correct answer
-        if (!isCorrect) {
-          [...card.querySelectorAll(".choice")].forEach((c) => {
-            if (c !== selectedElement && c.dataset.isCorrect === "true") {
-              c.classList.add("correct");
-              c.querySelector(".icon").textContent = "✓";
-            }
-          });
+                quizContainer.appendChild(card);
+            });
         }
 
-        // Display explanation
-        const expEl = card.querySelector(".explanation");
-        expEl.innerHTML = `
-                <div class="${
-                  isCorrect ? "feedback-success" : "feedback-error"
-                }" style="margin-bottom: 8px;">
-                    ${
-                      isCorrect
+        /* ---------- HANDLE CHOICE ---------- */
+        function handleChoice(selectedElement, card, q) {
+            if (card.dataset.answered === "true") return; // Prevent re-answering
+            card.dataset.answered = "true";
+            answeredQuestionsCount++; // Increment count of attempted questions
+
+            const isCorrect = selectedElement.dataset.isCorrect === "true";
+            selectedElement.classList.add(isCorrect ? "correct" : "wrong");
+            selectedElement.querySelector(".icon").textContent = isCorrect
+                ? "✓"
+                : "✗";
+
+            if (isCorrect) {
+                correctAnswersCount++; // Increment count of correct answers
+            }
+
+            // If incorrect, highlight the correct answer
+            if (!isCorrect) {
+                [...card.querySelectorAll(".choice")].forEach((c) => {
+                    if (c !== selectedElement && c.dataset.isCorrect === "true") {
+                        c.classList.add("correct");
+                        c.querySelector(".icon").textContent = "✓";
+                    }
+                });
+            }
+
+            // Display explanation
+            const expEl = card.querySelector(".explanation");
+            expEl.innerHTML = `
+                <div class="${isCorrect ? "feedback-success" : "feedback-error"}" style="margin-bottom: 8px;">
+                    ${isCorrect
                         ? "That's correct! Here's why:"
                         : "Incorrect! Here's the explanation."
                     }
                 </div>
-                <div class="${
-                  isCorrect
-                    ? "explanation-content-success"
-                    : "explanation-content-error"
-                }">
+                <div class="${isCorrect
+                        ? "explanation-content-success"
+                        : "explanation-content-error"
+                    }">
                     ${q.explanation || "No explanation provided."}
                 </div>
             `;
-        expEl.hidden = false;
+            expEl.hidden = false;
 
-        // Check if all questions are answered
-        if (answeredQuestionsCount === totalQuestions) {
-          handleCompletion();
-        }
-      }
-
-      /* ---------- ON COMPLETION ---------- */
-      function handleCompletion() {
-        // Determine if there's a next quiz in the sequence
-        const hasNextQuiz = currentQuizIndex + 1 < QUIZ_FILES_SEQUENCE.length;
-
-        if (hasNextQuiz) {
-          tryBtn.textContent = "Next Quiz";
-          tryBtn.style.display = "block"; // Show "Next Quiz" button
-          congratsMessage.style.display = "none"; // Hide congratulations message
-        } else {
-          // This is the last quiz
-          tryBtn.style.display = "none"; // Hide the button
-          congratsMessage.style.display = "block"; // Show the final congratulations
+            // Check if all questions are answered
+            if (answeredQuestionsCount === totalQuestions) {
+                handleCompletion();
+            }
         }
 
-        // Scroll the button (or the congrats message) into view
-        // Use setTimeout to ensure display:block has rendered
-        setTimeout(() => {
-          if (tryBtn.style.display === "block") {
-            tryBtn.scrollIntoView({ behavior: "smooth", block: "center" });
-          } else if (congratsMessage.style.display === "block") {
-            congratsMessage.scrollIntoView({
-              behavior: "smooth",
-              block: "center",
-            });
-          }
-        }, 150);
+        /* ---------- ON COMPLETION ---------- */
+        function handleCompletion() {
+            const hasNextQuiz = currentQuizIndex + 1 < QUIZ_FILES_SEQUENCE.length;
 
-        // Optional: Update general quiz completion counter
-        let count = parseInt(localStorage.getItem(QUIZ_COUNT_KEY)) || 0;
-        count++;
-        localStorage.setItem(QUIZ_COUNT_KEY, count);
-      }
+            // Calculate score using correctAnswersCount
+            const scorePercent = totalQuestions > 0 ? Math.round((correctAnswersCount / totalQuestions) * 100) : 0;
+            const scoreText = `You got ${correctAnswersCount} out of ${totalQuestions} questions correct (${scorePercent}%).`;
 
-      /* ---------- NEXT QUIZ BUTTON CLICK HANDLER ---------- */
-      tryBtn.addEventListener("click", () => {
-        // First, ensure all questions in the current quiz have been answered
-        if (answeredQuestionsCount < totalQuestions) {
-          alert(
-            "Please answer all questions first before proceeding to the next quiz."
-          );
-          console.log(
-            "DEBUG: Next Quiz button clicked, but not all questions answered. currentQuizIndex will NOT increment."
-          );
-          return; // Stop execution
+            let messageHTML = ""; // Initialize an empty string for the message
+
+            // Determine the main message based on scorePercent
+            if (scorePercent >= 70) {
+                messageHTML = `
+                    <div style="margin-bottom: 12px; font-weight: bold;">🎉 Congratulations!</div>
+                    <div style="margin-bottom: 8px;">${scoreText}</div>
+                `;
+            } else {
+                messageHTML = `
+                    <div style="margin-bottom: 12px; font-weight: bold;">Keep Going! 💪</div>
+                    <div style="margin-bottom: 8px;">${scoreText}</div>
+                    <div>Don't worry! Every attempt helps you learn. Review the explanations and try again.</div>
+                `;
+            }
+
+            // Add final completion message if it's the very last quiz
+            if (!hasNextQuiz) {
+                messageHTML += `
+                    <div style="margin-top: 15px; font-weight: bold; color: green;">You've completed all quizzes! Excellent work!</div>
+                `;
+            }
+
+            // Update message
+            congratsMessage.innerHTML = messageHTML;
+            congratsMessage.style.display = "block";
+
+            // Set button text and display based on `hasNextQuiz`
+            if (hasNextQuiz) {
+                tryBtn.textContent = "Next Quiz";
+            } else {
+                tryBtn.textContent = "Start Over"; // Last page, so show "Start Over"
+            }
+            tryBtn.style.display = "block"; // Always show the button after completion
+
+            // Scroll message or button into view
+            setTimeout(() => {
+                (tryBtn).scrollIntoView({ behavior: "smooth", block: "center" }); // Always scroll to the button
+            }, 150);
+
+            // Optional: Update quiz count
+            let count = parseInt(localStorage.getItem(QUIZ_COUNT_KEY)) || 0;
+            localStorage.setItem(QUIZ_COUNT_KEY, ++count);
         }
 
-        console.log(
-          "DEBUG: Before increment - currentQuizIndex:",
-          currentQuizIndex
-        );
-        currentQuizIndex++; // Increment the index for the next quiz
-        console.log(
-          "DEBUG: After increment - currentQuizIndex:",
-          currentQuizIndex
-        );
+        /* ---------- NEXT QUIZ BUTTON CLICK HANDLER ---------- */
+        tryBtn.addEventListener("click", () => {
+            // If the button says "Start Over", reset the quiz and load the first one
+            if (tryBtn.textContent === "Start Over") {
+                currentQuizIndex = 0; // Reset to the first quiz
+                localStorage.setItem(CURRENT_QUIZ_INDEX_KEY, currentQuizIndex);
+                loadQuiz(QUIZ_FILES_SEQUENCE[currentQuizIndex]);
+                console.log("DEBUG: Quiz reset. Loading first quiz.");
+                return; // Exit the function as we've handled the restart
+            }
 
-        // Store the new currentQuizIndex in local storage for persistence
-        localStorage.setItem(CURRENT_QUIZ_INDEX_KEY, currentQuizIndex);
-        console.log(
-          "DEBUG: currentQuizIndex saved to localStorage as:",
-          localStorage.getItem(CURRENT_QUIZ_INDEX_KEY)
-        );
+            // Only proceed to next quiz logic if the current one is fully answered
+            if (answeredQuestionsCount < totalQuestions) {
+                alert(
+                    "Please answer all questions first before proceeding to the next quiz."
+                );
+                console.log(
+                    "DEBUG: Next Quiz button clicked, but not all questions answered. currentQuizIndex will NOT increment."
+                );
+                return; // Stop execution
+            }
 
-        // Check if there are more quizzes in the sequence
-        if (currentQuizIndex < QUIZ_FILES_SEQUENCE.length) {
-          // Load the next quiz in the sequence
-          loadQuiz(QUIZ_FILES_SEQUENCE[currentQuizIndex]);
-        } else {
-          // No more quizzes: display final congratulations and hide button
-          tryBtn.style.display = "none";
-          congratsMessage.style.display = "block";
-          congratsMessage.scrollIntoView({
-            behavior: "smooth",
-            block: "center",
-          });
-          // Reset quiz index if all quizzes are completed (optional, for restarting flow)
-          // localStorage.setItem(CURRENT_QUIZ_INDEX_KEY, 0); // Uncomment to reset to first quiz after completion
+            console.log(
+                "DEBUG: Before increment - currentQuizIndex:",
+                currentQuizIndex
+            );
+            currentQuizIndex++; // Increment the index for the next quiz
+            console.log(
+                "DEBUG: After increment - currentQuizIndex:",
+                currentQuizIndex
+            );
+
+            // Store the new currentQuizIndex in local storage for persistence
+            localStorage.setItem(CURRENT_QUIZ_INDEX_KEY, currentQuizIndex);
+            console.log(
+                "DEBUG: currentQuizIndex saved to localStorage as:",
+                localStorage.getItem(CURRENT_QUIZ_INDEX_KEY)
+            );
+
+            // Load the next quiz in the sequence
+            // This will always run now, as the 'Start Over' case is handled above
+            loadQuiz(QUIZ_FILES_SEQUENCE[currentQuizIndex]);
+
+            // Optional: Track which specific quiz pages have been completed
+            let completed =
+                JSON.parse(localStorage.getItem(COMPLETED_QUIZZES_LIST_KEY)) || [];
+            // We store the index of the quiz just completed (currentQuizIndex - 1)
+            if (
+                !completed.includes(currentQuizIndex - 1) &&
+                currentQuizIndex - 1 >= 0
+            ) {
+                completed.push(currentQuizIndex - 1);
+            }
+            localStorage.setItem(
+                COMPLETED_QUIZZES_LIST_KEY,
+                JSON.stringify(completed)
+            );
+        });
+
+        /* ---------- SHUFFLE ARRAY (for questions) ---------- */
+        function shuffleArray(array) {
+            let arr = array.slice(); // Create a shallow copy to avoid modifying original array
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]]; // ES6 swap
+            }
+            return arr;
         }
 
-        // Optional: Track which specific quiz pages have been completed
-        let completed =
-          JSON.parse(localStorage.getItem(COMPLETED_QUIZZES_LIST_KEY)) || [];
-        // We store the index of the quiz just completed (currentQuizIndex - 1)
-        if (
-          !completed.includes(currentQuizIndex - 1) &&
-          currentQuizIndex - 1 >= 0
-        ) {
-          completed.push(currentQuizIndex - 1);
+        // Prevent the browser from restoring the previous scroll position
+        if ("scrollRestoration" in history) {
+            history.scrollRestoration = "manual";
         }
-        localStorage.setItem(
-          COMPLETED_QUIZZES_LIST_KEY,
-          JSON.stringify(completed)
-        );
-      });
 
-      /* ---------- SHUFFLE ARRAY (for questions) ---------- */
-      function shuffleArray(array) {
-        let arr = array.slice(); // Create a shallow copy to avoid modifying original array
-        for (let i = arr.length - 1; i > 0; i--) {
-          const j = Math.floor(Math.random() * (i + 1));
-          [arr[i], arr[j]] = [arr[j], arr[i]]; // ES6 swap
+        function scrollToTopAndShowButton() {
+            // Scroll to top
+            window.scrollTo(0, 0);
         }
-        return arr;
-      }
 
-      // Prevent the browser from restoring the previous scroll position
-      if ("scrollRestoration" in history) {
-        history.scrollRestoration = "manual";
-      }
+        // Scroll to top when page loads
+        window.addEventListener("load", () => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
 
-      function scrollToTopAndShowButton() {
-        // Scroll to top
-        window.scrollTo(0, 0);
-      }
-
-      // Scroll to top when page loads
-      window.addEventListener("load", () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      });
-
-      // Handle pageshow (back/forward cache)
-      window.addEventListener("pageshow", (event) => {
-        if (event.persisted) {
-          window.scrollTo({ top: 0, behavior: "smooth" });
-        }
-      });
+        // Handle pageshow (back/forward cache)
+        window.addEventListener("pageshow", (event) => {
+            if (event.persisted) {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            }
+        });
     </script>
-  </body>
+
+    </body>
+
 </html>
