@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SVA Quiz</title>
+    <!-- Google Fonts & Font Awesome -->
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
       rel="stylesheet"
@@ -15,13 +16,15 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+
     <style>
+      /* Body styles */
       body {
         font-family: monospace, Arial, sans-serif;
         background-color: #f4f4f4;
         display: flex;
         flex-direction: column;
-        align-items: center;
+        /* align-items: center; */     align-items: left; 
         padding: 20px;
         margin: 0;
         min-height: 100vh;
@@ -29,20 +32,20 @@
         scroll-behavior: smooth;
       }
 
+      /* Container for quiz questions */
       #quizContainer {
         width: 100%;
         max-width: 700px;
-        /* background-color: #fff; */
         border-radius: 8px;
-        /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
         box-sizing: border-box;
         min-height: 60vh;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
       }
+
       .title-header {
-        text-align: left !important;
+        text-align: left;
         margin-bottom: 15px;
         font-size: 16px;
       }
@@ -51,6 +54,7 @@
         color: green;
       }
 
+      /* Question card styling */
       .question-card {
         background-color: #ffffff;
         border: 1px solid #ddd;
@@ -60,6 +64,7 @@
         box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
       }
 
+      /* Question title */
       .question-title {
         font-size: 1em;
         font-weight: bold;
@@ -68,6 +73,7 @@
         color: #333;
       }
 
+      /* Choices list */
       .choices,
       .options {
         list-style: none;
@@ -75,6 +81,7 @@
         margin: 0;
       }
 
+      /* Choice items */
       .choice,
       .choice-item {
         background-color: #eef;
@@ -88,11 +95,13 @@
         align-items: center;
       }
 
+      /* Hover effects for choices */
       .choice:hover,
       .choice-item:hover:not(.correct):not(.wrong) {
         background-color: #e0e0ff;
       }
 
+      /* Correct choice styling */
       .choice.correct,
       .choice-item.correct {
         background-color: #d4edda;
@@ -100,6 +109,7 @@
         color: #155724;
       }
 
+      /* Wrong choice styling */
       .choice.wrong,
       .choice-item.wrong {
         background-color: #f8d7da;
@@ -107,24 +117,24 @@
         color: #721c24;
       }
 
+      /* Icon in choices */
       .choice .icon {
         margin-right: 10px;
         font-weight: bold;
         font-size: 1.1em;
       }
 
+      /* Explanation section */
       .explanation {
         margin-top: 15px;
         border-radius: 15px;
         width: 100%;
       }
-
       .explanation-label {
         font-weight: bold;
         margin-top: 8px;
         margin-bottom: 4px;
       }
-
       .explanation-content-success {
         background-color: #e2f0d9;
         border: 1px solid #a8d591;
@@ -133,7 +143,6 @@
         border-radius: 5px;
         font-size: 14px;
       }
-
       .explanation-content-error {
         background-color: #fce4e4;
         border: 1px solid #f0b0b0;
@@ -142,13 +151,13 @@
         border-radius: 5px;
       }
 
+      /* Feedback message styles */
       .feedback-success {
         color: #28a745;
         font-weight: bold;
         margin-bottom: 8px;
         border-radius: 5px;
       }
-
       .feedback-error {
         color: #dc3545;
         font-weight: bold;
@@ -156,6 +165,7 @@
         border-radius: 5px;
       }
 
+      /* Container for quiz actions (buttons, messages) */
       .quiz-actions-container {
         display: flex;
         flex-wrap: wrap;
@@ -168,6 +178,7 @@
         width: 100%;
       }
 
+      /* Next quiz button styling */
       #tryNewQuizBtn {
         display: none;
         width: auto;
@@ -185,14 +196,14 @@
         box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
         transition: background-color 0.2s ease;
       }
-
       #tryNewQuizBtn:hover {
         background-color: #0b320d;
       }
 
+      /* Congratulations message styling */
       #congratsMessage {
         display: none;
-        margin-top: 10px;
+        margin-top: 12px;
         padding: 12px;
         background-color: #d4edda;
         border: 1px solid #28a745;
@@ -204,153 +215,83 @@
         box-sizing: border-box;
       }
 
+      /* Floating home icon styles - positioned at the top right */
       .floating-home {
         position: fixed;
         top: 16px;
         right: 16px;
         width: 48px;
-        height: 48px;
+        height: 48px;        
+        line-height: 48px;
         background: green;
         color: whitesmoke;
         font-size: 22px;
         padding: 0;
         border-radius: 50%;
         text-align: center;
-        line-height: 48px;
         text-decoration: none;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
         z-index: 9999;
-        transition: background 0.3s ease, transform 0.2s ease;
         display: flex;
         align-items: center;
         justify-content: center;
+        transition: background 0.3s ease, transform 0.2s ease;
       }
-
       .floating-home:hover {
         background: #555;
         transform: scale(1.1);
       }
 
-      .title-header {
-        text-align: left;
-        margin-bottom: 15px;
-        font-size: 16px;
-      }
-
-      .title-header:hover {
-        color: green;
-      }
-
-      .question-card {
-        background: #fff;
-        border-radius: 10px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
-        padding: 16px 20px;
-        margin-bottom: 18px;
-        font-size: 14px;
-      }
-
-      .question-title {
-        font-weight: 600;
-        margin-bottom: 10px;
-        line-height: 1.4;
-      }
-
-      @media (max-width: 480px) {
-        body{
-          text-align: left;
-        }
-        .floating-home {
+      /* Responsive adjustments for smaller devices */
+      
+      @media (max-width: 480px) {   
+         .floating-home {
           bottom: 12px;
           right: 12px;
-          width: 44px;
-          height: 44px;
-          font-size: 20px;
-          line-height: 44px;
+          width: 36px;
+          height: 36px;
+          font-size: 18px;
+          line-height: 36px;
+          margin: 10px 10px 10px;
         }
-
         .title-header {
             text-align: left;
-        }
-
-        .sva-rules-container {
-          font-size: 0.85rem;
-        }
-
-        .list-wrapper {
-          padding-left: 20px;
-        }
-
-        .bonus-tips {
-          font-size: 0.85rem;
-          padding-left: 20px;
+            margin-left: 10px;
         }
       }
 
+      /* Larger screens adjustments */
       @media (min-width: 768px) {
         body {
           padding: 24px;
         }
-
+        #quizContainer{
+          max-width: 100%;
+        }
         .title-header {
           margin-bottom: 24px;
           font-size: 32px;
-          margin-top: 0;
-          text-align: center;
+          margin-top: 0; 
+          margin-left: 10px;
         }
         .question-title {
           margin-bottom: 12px;
         }
-
-        .choice {
-          padding: 12px 16px;
-          margin-bottom: 12px;
-        }
-
-        .choice .icon {
-          width: 18px;
-          height: 18px;
-          margin-right: 8px;
-        }
-
-        .choice-item {
-          padding: 12px 18px;
-          margin-bottom: 12px;
-        }
-
-        .choice-item input[type="radio"] {
-          transform: scale(1.2);
-          margin-right: 12px;
-        }
-
-        .explanation {
-          margin-top: 12px;
-          font-size: 0.95rem;
-        }
-
-        .feedback-success,
-        .feedback-error {
-          margin-bottom: 10px;
-        }
-
-        .quiz-actions-container {
-          max-width: 700px;
-          margin-top: 0px;
-        }
-
-        #tryNewQuizBtn {
-          padding: 8px 18px;
-          font-size: 0.95em;
+        .floating-home{
+        margin-right: 10px;
         }
       }
     </style>
-  </head>
-
+  
+    </head>
   <body>
+    
+    <h3 class="title-header">Subject–Verb Agreement Quiz</h3>
+
+    <!-- Floating Home Icon -->
     <a href="index.html" class="floating-home" title="Go Home">
       <i class="fa-solid fa-house"></i>
     </a>
-    <h3 class="title-header">Subject–Verb Agreement Quiz</h3>
 
     <div id="quizContainer">Loading quiz...</div>
 
@@ -362,8 +303,6 @@
     </div>
 
     <script>
-      // localStorage.setItem(CURRENT_QUIZ_INDEX_KEY, 0); // Always start at first quiz
-
       /* ---------- GLOBAL VARIABLES ---------- */
       let quizData = []; // Stores the current quiz's questions
       let totalQuestions = 0; // Total questions in the current quiz
@@ -641,21 +580,17 @@
       function scrollToTopAndShowButton() {
         // Scroll to top
         window.scrollTo(0, 0);
-
-        // Show the floating home button (if it exists)
-        const btn = document.querySelector(".floating-home");
-        if (btn) btn.style.visibility = "visible";
       }
 
-      // Scroll to top on full load
+      // Scroll to top when page loads
       window.addEventListener("load", () => {
-        scrollToTopAndShowButton();
+        window.scrollTo({ top: 0, behavior: "smooth" });
       });
 
-      // Also handle page restore from back-forward cache
+      // Handle pageshow (back/forward cache)
       window.addEventListener("pageshow", (event) => {
         if (event.persisted) {
-          scrollToTopAndShowButton();
+          window.scrollTo({ top: 0, behavior: "smooth" });
         }
       });
     </script>
