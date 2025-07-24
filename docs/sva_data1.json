@@ -57,10 +57,10 @@
   },
   {
     "seqNo": 9,
-    "prompt": "There _______ a pen and some notebooks on the table.",
-    "choices": ["is", "are", "has", "be"],
+     "prompt": "There _______ a pen and a notebook on the table.",
+    "choices": ["is", "are", "was", "has"],
     "correctIndex": 1,
-    "explanation": "'The number of...' is singular, so the verb is 'is.' (But: “A number of students are…” → plural)"
+    "explanation": "“A pen and a notebook” are two items → plural subject, so we use “are.”"
   },
   {
     "seqNo": 10,
@@ -114,10 +114,10 @@
   },
   {
     "seqNo": 17,
-    "prompt": "There _______ a pen and a notebook on the table.",
+    "prompt": "Neither of the answers _______ correct.",
     "choices": ["is", "are", "was", "has"],
-    "correctIndex": 1,
-    "explanation": "“A pen and a notebook” are two items → plural subject, so we use “are.”"
+    "correctIndex": 0,
+    "explanation": "'Neither' is a singular indefinite pronoun, so it takes a singular verb — 'is.'"
   },
   {
     "seqNo": 18,
