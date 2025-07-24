@@ -38,7 +38,7 @@
     "seqNo": 6,
     "prompt": "My pants _______ in the laundry basket.",
     "choices": ["is", "are", "was", "been"],
-    "correctIndex": 2,
+    "correctIndex": 1,
     "explanation": "'Pants' is always plural (like scissors, glasses), so it takes a plural verb."
   },
   {
@@ -107,10 +107,10 @@
   },
   {
     "seqNo": 16,
-    "prompt": "My pants _______ in the laundry basket.",
-    "choices": ["is", "are", "was", "been"],
-    "correctIndex": 2,
-    "explanation": "'Pants' is always plural (like scissors, glasses), so it takes a plural verb."
+    "prompt": "My friend and mentor _______ arriving soon.",
+    "choices": ["is", "are", "were", "have"],
+    "correctIndex": 0,
+    "explanation": "“My friend and mentor” refers to one person, so the verb is singular."
   },
   {
     "seqNo": 17,
