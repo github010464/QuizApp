@@ -1,0 +1,242 @@
+[
+  {
+    "seqNo": 1,
+    "prompt": "Which sentence demonstrates correct subject-verb agreement?",
+    "choices": [
+      "The flock of birds are flying south for the winter.",
+      "Neither the students nor the teacher is ready for the exam.",
+      "Every one of the paintings were stolen from the gallery.",
+      "The cat and the dog always fights over the food."
+    ],
+    "correctIndex": 1,
+    "explanation": "When 'neither...nor' connects two subjects, the verb agrees with the subject closer to it. Here, 'teacher' is singular, so 'is ready' is correct. The other sentences have errors: 'The flock of birds is flying...', 'Every one of the paintings was stolen...', 'The cat and the dog always fight...'"
+  },
+  {
+    "seqNo": 2,
+    "prompt": "Choose the sentence with proper subject-verb agreement:",
+    "choices": [
+      "The news from the capital are alarming.",
+      "Politics is a dirty game.",
+      "A series of events have led to this outcome.",
+      "Many a tear were shed during the farewell."
+    ],
+    "correctIndex": 1,
+    "explanation": "'Politics' is a singular noun, even though it ends in 's', and therefore takes a singular verb 'is'. The other options should be: 'The news from the capital is alarming.', 'A series of events has led...', 'Many a tear was shed...'"
+  },
+  {
+    "seqNo": 3,
+    "prompt": "Identify the sentence that observes subject-verb agreement:",
+    "choices": [
+      "The children's laughter, along with their playful shouts, fill the air.",
+      "Each of the suggestions were carefully considered.",
+      "None of the solutions seems entirely suitable.",
+      "The committee are still debating the proposal."
+    ],
+    "correctIndex": 2,
+    "explanation": "'None' can be singular or plural, but in formal contexts, it is often treated as singular, hence 'seems'. The other options should be: 'The children's laughter, along with their playful shouts, fills the air.', 'Each of the suggestions was carefully considered.', 'The committee is still debating the proposal.'"
+  },
+  {
+    "seqNo": 4,
+    "prompt": "Which of the following sentences has correct subject-verb agreement?",
+    "choices": [
+      "Our team of developers are working on a new project.",
+      "The data shows a significant increase in sales.",
+      "There is usually two options available.",
+      "These pants is too tight."
+    ],
+    "correctIndex": 1,
+    "explanation": "'Data' can be singular or plural; here, it is treated as singular, hence 'shows'. The other sentences have errors: 'Our team of developers is working...', 'There are usually two options...', 'These pants are too tight.'"
+  },
+  {
+    "seqNo": 5,
+    "prompt": "Select the sentence where subject and verb agree:",
+    "choices": [
+      "The majority of the audience prefers live music.",
+      "Some of the students has finished their homework.",
+      "Economics are a fascinating subject.",
+      "Over the hills and far away lives the mythical creature."
+    ],
+    "correctIndex": 3,
+    "explanation": "In this inverted sentence, the subject is 'the mythical creature' (singular), so the verb 'lives' is correct. The other sentences should be: 'The majority of the audience prefer live music.' (if acting individually), 'Some of the students have finished...', 'Economics is a fascinating subject.'"
+  },
+  {
+    "seqNo": 6,
+    "prompt": "Which sentence demonstrates proper subject-verb agreement?",
+    "choices": [
+      "There's many reasons to be optimistic.",
+      "The smell of freshly baked cookies are inviting.",
+      "Either you or he is responsible for this.",
+      "Everybody have the right to free speech."
+    ],
+    "correctIndex": 2,
+    "explanation": "When 'either/or' connects two subjects, the verb agrees with the subject closer to it, which is 'he', hence 'is'. The other sentences should be: 'There are many reasons...', 'The smell of freshly baked cookies is inviting.', 'Everybody has the right...'"
+  },
+  {
+    "seqNo": 7,
+    "prompt": "Find the sentence with correct subject-verb agreement:",
+    "choices": [
+      "Ten dollars are a reasonable price.",
+      "The Philippines are a beautiful country.",
+      "Neither the coach nor the players accepts defeat easily.",
+      "Macaroni and cheese is a comfort food."
+    ],
+    "correctIndex": 3,
+    "explanation": "When two subjects refer to a single unit or idea ('macaroni and cheese'), the singular verb 'is' is used. In the other options, 'Ten dollars is...', 'The Philippines is...', 'Neither the coach nor the players accept...' (verb agrees with 'players')."
+  },
+  {
+    "seqNo": 8,
+    "prompt": "Choose the grammatically correct sentence:",
+    "choices": [
+      "The list of ingredients include salt and pepper.",
+      "Every boy and girl receives a prize.",
+      "Most of the information were unreliable.",
+      "Neither of the statements were true."
+    ],
+    "correctIndex": 1,
+    "explanation": "When 'every' precedes compound subjects, the verb is singular. The other sentences should be: 'The list of ingredients includes...', 'Most of the information was unreliable.', 'Neither of the statements was true.'"
+  },
+  {
+    "seqNo": 9,
+    "prompt": "Which sentence adheres to subject-verb agreement rules?",
+    "choices": [
+      "The police is on high alert.",
+      "Mumps are a childhood disease.",
+      "Each of the paintings depicts a different scene.",
+      "The audience have given a standing ovation."
+    ],
+    "correctIndex": 2,
+    "explanation": "'Each' is a singular indefinite pronoun, so the verb 'depicts' is correct. The other sentences should be: 'The police are on high alert.', 'Mumps is a childhood disease.', 'The audience has given a standing ovation.'"
+  },
+  {
+    "seqNo": 10,
+    "prompt": "Select the sentence with accurate subject-verb agreement:",
+    "choices": [
+      "The number of volunteers have increased.",
+      "A herd of elephants are migrating.",
+      "Five miles is a long walk.",
+      "All of the cake were eaten."
+    ],
+    "correctIndex": 2,
+    "explanation": "When a plural noun indicates a single unit of measurement, distance, or time, a singular verb is used. The other sentences should be: 'The number of volunteers has increased.', 'A herd of elephants is migrating.', 'All of the cake was eaten.'"
+  },
+  {
+    "seqNo": 11,
+    "prompt": "Identify the sentence demonstrating correct subject-verb agreement:",
+    "choices": [
+      "Statistics are a difficult subject for some.",
+      "Neither rain nor heat affects the schedule.",
+      "The majority of voters supports the initiative.",
+      "His favorite hobby are collecting stamps."
+    ],
+    "correctIndex": 1,
+    "explanation": "When 'neither...nor' connects two subjects, the verb agrees with the subject closer to it. Here, 'heat' is singular, so 'affects' is correct. The other sentences should be: 'Statistics is a difficult subject...', 'The majority of voters support the initiative.', 'His favorite hobby is collecting stamps.'"
+  },
+  {
+    "seqNo": 12,
+    "prompt": "Choose the sentence with the correct verb form:",
+    "choices": [
+      "Behind the curtain stands the actors.",
+      "The only thing that matters are your dreams.",
+      "The students, along with their parents, is attending the ceremony.",
+      "One of my favorite hobbies is reading."
+    ],
+    "correctIndex": 3,
+    "explanation": "The subject is 'One', which is singular, so 'is reading' is correct. The other sentences should be: 'Behind the curtain stand the actors.', 'The only thing that matters is your dreams.', 'The students, along with their parents, are attending the ceremony.'"
+  },
+  {
+    "seqNo": 13,
+    "prompt": "Which sentence exhibits proper subject-verb agreement?",
+    "choices": [
+      "Everyone needs to submit their report.",
+      "The staff is having a meeting this afternoon.",
+      "Few of the challenges was easily overcome.",
+      "Some of the coffee are still hot."
+    ],
+    "correctIndex": 1,
+    "explanation": "'Staff' is a collective noun treated as a single unit here, hence 'is having'. The other sentences should be: 'Everyone needs to submit his/her report.' (or 'their' with plural verb), 'Few of the challenges were easily overcome.', 'Some of the coffee is still hot.'"
+  },
+  {
+    "seqNo": 14,
+    "prompt": "Select the sentence that has no subject-verb agreement errors:",
+    "choices": [
+      "The media plays a significant role in shaping public opinion.",
+      "Half of the apples were rotten.",
+      "There's several errors in your report.",
+      "Neither of us agree with the decision."
+    ],
+    "correctIndex": 1,
+    "explanation": "'Half of the apples' is plural, so 'were rotten' is correct. The other sentences should be: 'The media play a significant role...' (if treated as individual members), 'There are several errors...', 'Neither of us agrees with the decision.'"
+  },
+  {
+    "seqNo": 15,
+    "prompt": "Identify the sentence with correct subject-verb agreement:",
+    "choices": [
+      "The council members are divided on the issue.",
+      "Each of the cars have a different color.",
+      "Neither the dog nor the cats was fed.",
+      "The news from the battlefront are concerning."
+    ],
+    "correctIndex": 0,
+    "explanation": "When 'council members' are acting as individuals or are divided, the plural verb 'are' is correct. The other sentences should be: 'Each of the cars has...', 'Neither the dog nor the cats were fed.', 'The news from the battlefront is concerning.'"
+  },
+  {
+    "seqNo": 16,
+    "prompt": "Choose the sentence with the appropriate verb form:",
+    "choices": [
+      "The stack of books are on the table.",
+      "Several problems has arisen.",
+      "The professor, along with her students, plans a field trip.",
+      "All of the water is contaminated."
+    ],
+    "correctIndex": 3,
+    "explanation": "'All of the water' refers to an uncountable noun, so the singular verb 'is' is correct. The other sentences should be: 'The stack of books is on the table.', 'Several problems have arisen.', 'The professor, along with her students, plan a field trip.' (if 'students' are acting as co-planners)."
+  },
+  {
+    "seqNo": 17,
+    "prompt": "Which sentence correctly demonstrates subject-verb agreement?",
+    "choices": [
+      "Everyone in the audience clap loudly.",
+      "The team has won the championship.",
+      "A pair of glasses are on my desk.",
+      "There's only a few minutes left."
+    ],
+    "correctIndex": 1,
+    "explanation": "'Team' is a collective noun treated as a single unit here, hence 'has won'. The other sentences should be: 'Everyone in the audience claps loudly.', 'A pair of glasses is on my desk.', 'There are only a few minutes left.'"
+  },
+  {
+    "seqNo": 18,
+    "prompt": "Find the sentence with the correct subject-verb agreement:",
+    "choices": [
+      "Both of the candidates is qualified.",
+      "The CEO, together with his staff, are traveling.",
+      "Many of the new laws has been challenged.",
+      "No one but the experts understands the complexity."
+    ],
+    "correctIndex": 3,
+    "explanation": "When 'no one but' precedes a plural noun, the verb agrees with 'no one' (singular). The other sentences should be: 'Both of the candidates are qualified.', 'The CEO, together with his staff, is traveling.', 'Many of the new laws have been challenged.'"
+  },
+  {
+    "seqNo": 19,
+    "prompt": "Select the sentence with no subject-verb agreement errors:",
+    "choices": [
+      "Physics are my favorite subject.",
+      "Neither of the options is appealing.",
+      "The choir sing beautifully.",
+      "The employees, especially the new ones, needs training."
+    ],
+    "correctIndex": 1,
+    "explanation": "'Neither' is a singular indefinite pronoun, so 'is' is correct. The other sentences should be: 'Physics is my favorite subject.', 'The choir sings beautifully.', 'The employees, especially the new ones, need training.'"
+  },
+  {
+    "seqNo": 20,
+    "prompt": "Which of the following sentences has proper subject-verb agreement?",
+    "choices": [
+      "The current affairs affects everyone.",
+      "Most of the equipment have been repaired.",
+      "The primary goal are customer satisfaction.",
+      "Each of the flowers has a unique fragrance."
+    ],
+    "correctIndex": 3,
+    "explanation": "'Each' is a singular indefinite pronoun, so 'has' is correct. The other sentences should be: 'The current affairs affect everyone.', 'Most of the equipment has been repaired.', 'The primary goal is customer satisfaction.'"
+  }
+]

@@ -1,0 +1,144 @@
+[
+  {
+    "seqNo": 1,
+    "prompt": "The list of items _______ on the desk.",
+    "choices": ["are", "is", "have", "were"],
+    "correctIndex": 1,
+    "explanation": "The subject is “list” (singular), not “items.”"
+  },
+  {
+    "seqNo": 2,
+    "prompt": "The dogs or the cat _______ in the garage.",
+    "choices": ["are", "is", "were", "have"],
+    "correctIndex": 1,
+    "explanation": "With “or,” the verb agrees with the nearest subject, which is “cat.”"
+  },
+  {
+    "seqNo": 3,
+    "prompt": "Some of the pie _______ left.",
+    "choices": ["is", "are", "were", "have"],
+    "correctIndex": 0,
+    "explanation": "“Pie” is uncountable, so use a singular verb."
+  },
+  {
+    "seqNo": 4,
+    "prompt": "All of the cookies _______ gone.",
+    "choices": ["is", "was", "are", "has"],
+    "correctIndex": 2,
+    "explanation": "“Cookies” is plural, so we use “are.”"
+  },
+  {
+    "seqNo": 5,
+    "prompt": "The number of applicants _______ increasing every year.",
+    "choices": ["are", "is", "were", "have"],
+    "correctIndex": 1,
+    "explanation": "“The number of…” is a singular subject."
+  },
+  {
+    "seqNo": 6,
+    "prompt": "A number of students _______ late.",
+    "choices": ["is", "are", "was", "has"],
+    "correctIndex": 1,
+    "explanation": " Explanation: “A number of…” means many, so it's plural."
+  },
+  {
+    "seqNo": 7,
+    "prompt": "The people who live next door _______ friendly.",
+    "choices": ["is", "are", "was", "has"],
+    "correctIndex": 1,
+    "explanation": "“People” is always plural."
+  },
+  {
+    "seqNo": 8,
+    "prompt": "Neither the students nor the teacher _____ happy with the new policy.",
+    "choices": ["is", "are", "am", "be"],
+    "correctIndex": 0,
+    "explanation": "When two subjects are joined by 'neither... nor,' the verb agrees with the subject closest to it. In this case, 'teacher' (singular) is closest to the verb."
+  },
+  {
+    "seqNo": 9,
+    "prompt": "Fifty kilometers _______ a long way to walk.",
+    "choices": ["are", "is", "have", "were"],
+    "correctIndex": 1,
+    "explanation": "Distance is treated as a singular unit."
+  },
+  {
+    "seqNo": 10,
+    "prompt": "The committee _____ decided on the new dress code.",
+    "choices": ["has", "have", "is", "are"],
+    "correctIndex": 0,
+    "explanation": "'Committee' can be treated as a singular unit when acting collectively. Here, the committee as a single body has made a decision. (If individual members were acting separately, 'have' could be used, but 'has' is more common for a collective decision)."
+  },
+  
+  {
+    "seqNo": 11,
+    "prompt": "Every one of the employees _____ a valid reason for being late.",
+    "choices": ["have", "has", "are", "were"],
+    "correctIndex": 1,
+    "explanation": "Indefinite pronouns like 'every one,' 'each,' 'either,' 'neither,' 'anyone,' 'everyone,' 'no one,' 'someone,' 'anybody,' 'everybody,' 'nobody, ' and 'somebody' are always singular."
+  },
+  {
+    "seqNo": 12,
+    "prompt": "Bread and butter _____ my favorite breakfast.",
+    "choices": ["are", "is", "were", "have"],
+    "correctIndex": 1,
+    "explanation": "Explanation: When two nouns refer to a single idea or unit ('bread and butter' as a single dish), they take a singular verb."
+  },
+  {
+    "seqNo": 13,
+    "prompt": "Twenty dollars _____ a reasonable price for that book.",
+    "choices": ["are", "is", "were", "be"],
+    "correctIndex": 1,
+    "explanation": "Phrases indicating amounts, distances, periods of time, or sums of money take a singular verb when the amount is considered as a single unit."
+  },
+  {
+    "seqNo": 14,
+    "prompt": "The majority of the audience _____ against the proposal.",
+    "choices": ["was", "were", "is", "has"],
+    "correctIndex": 1,
+    "explanation": "With collective nouns like 'majority,' the verb can be singular or plural depending on whether the members are acting as a unit or as individuals. Here, 'the majority of the audience were against the proposal' implies individual members holding differing opinions. If it was 'the majority of the audience is pleased,' it would imply a collective sentiment. Given 'against the proposal,' it leans towards individuals."
+  },
+  {
+    "seqNo": 15,
+    "prompt": "Statistics _____ a difficult subject for many students.",
+    "choices": ["are", "is", "were", "have"],
+    "correctIndex": 1,
+    "explanation": "Subjects that are plural in form but singular in meaning (e.g., names of academic subjects like 'statistics,' 'physics,' 'mathematics,' or diseases like 'measles,' 'mumps') take a singular verb."
+  },
+  {
+    "seqNo": 16,
+    "prompt": "Along the road _____ many old houses.",
+    "choices": ["stands", "stand", "standing", "is standing"],
+    "correctIndex": 1,
+    "explanation": "In sentences beginning with 'here' or 'there' or a prepositional phrase ('Along the road'), the true subject follows the verb. The subject is 'many old houses' (plural), so the verb must be plural."
+  },
+  {
+    "seqNo": 17,
+    "prompt": "There _______ a pen and a notebook on the table.",
+    "choices": ["is", "are", "was", "has"],
+    "correctIndex": 1,
+    "explanation": "“A pen and a notebook” are two items → plural subject, so we use “are.”"
+  },
+  {
+    "seqNo": 18,
+    "prompt": "Ten dollars _______ not enough for lunch these days.",
+    "choices": ["are", "were", "is", "have"],
+    "correctIndex": 2,
+    "explanation": "Amounts of money are treated as singular units → “Ten dollars” = one sum, so use “is.”"
+  },
+  {
+    "seqNo": 19,
+    "prompt": "Each of the participants _____ asked to sign a consent form.",
+    "choices": ["were", "are", "was", "have been"],
+    "correctIndex": 2,
+    "explanation": "'Each' is an indefinite pronoun and always takes a singular verb."
+  },
+  {
+    "seqNo": 20,
+    "prompt": "The news _____ always broadcast at 6 PM.",
+    "choices": ["are", "were", "is", "have"],
+    "correctIndex": 2,
+    "explanation": "The word 'news' is always treated as a singular noun, even though it ends in 's'."
+  }
+]
+

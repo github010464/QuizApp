@@ -1,30 +1,144 @@
 [
   {
     "seqNo": 1,
-    "prompt": "Spaghetti and meatballs ____ Tifanny's favorite meal.",
-    "choices": ["is", "are", "was", "were"],
-    "correctIndex": 0,
-    "explanation": "This is an example of how a noun that looks plural can act as singular. Even with the meatballs, it's a singular dish."
+    "prompt": "Each of the players _______ a locker in the changing room.",
+    "choices": ["have", "has", "are", "were"],
+    "correctIndex": 1,
+    "explanation": "'Each' is always singular, even when followed by a plural object like 'players.' So we use 'has', not 'have'."
   },
   {
     "seqNo": 2,
-    "prompt": "One percent of the students ____ Spanish each year.",
-    "choices": ["fails", "fail", "failed", "failing"],
-    "correctIndex": 1,
-    "explanation": "Don't distracted by the 'one' in 'one percent'. This is not the same thing as 'one' by itself."
+    "prompt": "Neither the teacher nor the students _______ prepared for the trip.",
+    "choices": ["was", "is", "are", "be"],
+    "correctIndex": 2,
+    "explanation": "With 'neither...nor', the verb agrees with the closer subject, which is 'students' (plural). So the correct verb is 'are.'"
   },
   {
     "seqNo": 3,
-    "prompt": "Because of the blizzard, a number of local businesses ____ closed yesterday.",
-    "choices": ["is", "are", "was", "were"],
-    "correctIndex": 3,
-    "explanation": "Sometimes people see the word 'number' and think, Aha! A singular noun requires a singular verb. But 'number' with the word 'a' in front of it refers to a plural quantity. It sounds bizarre to try to combine it with a singular verb."
+    "prompt": "One of the books _______ missing.",
+    "choices": ["are", "were", "is", "have been"],
+    "correctIndex": 2,
+    "explanation": "The subject is 'one', which is singular. 'of the books' is just a prepositional phrase and doesn’t affect the verb."
   },
   {
     "seqNo": 4,
-    "prompt": "The majority of the children ____ already finished their chocolate bars.",
-    "choices": ["has", "have", "was", "were"],
+    "prompt": "The committee _______ deciding on the new policy.",
+    "choices": ["are", "is", "have", "be"],
     "correctIndex": 1,
-    "explanation": "When 'majority' is followed by a plural countable noun, use a plural verb. Here’s an example where you do not have a plural countable noun, and the writer uses a singular verb instead: The majority of the cheese is spoiled."
+    "explanation": "'Committee' is a collective noun, usually treated as singular in American English when acting s a unit. So: 'The committee is...'"
+  },
+  {
+    "seqNo": 5,
+    "prompt": "Ten dollars _______ not enough to buy that book.",
+    "choices": ["are", "is", "were", "have been"],
+    "correctIndex": 1,
+    "explanation": "Even though 'dollars' is plural, when referring to a single amount of money, it's treated as singular."
+  },
+  {
+    "seqNo": 6,
+    "prompt": "My pants _______ in the laundry basket.",
+    "choices": ["is", "are", "was", "been"],
+    "correctIndex": 2,
+    "explanation": "'Pants' is always plural (like scissors, glasses), so it takes a plural verb."
+  },
+  {
+    "seqNo": 7,
+    "prompt": "The number of students in the class _______ increasing.",
+    "choices": ["are", "is", "have been", "were"],
+    "correctIndex": 1,
+    "explanation": "'The number of...' is singular, so the verb is 'is.' (But: “A number of students are…” → plural)"
+  },
+  {
+    "seqNo": 8,
+    "prompt": "The teacher, along with her students, _______ going on a trip.",
+    "choices": ["are", "is", "were", "have"],
+    "correctIndex": 1,
+    "explanation": "The main subject is 'The teacher' (singular). The phrase 'along with her students' is just extra information and does not affect the verb."
+  },
+  {
+    "seqNo": 9,
+    "prompt": "There _______ a pen and some notebooks on the table.",
+    "choices": ["is", "are", "has", "be"],
+    "correctIndex": 1,
+    "explanation": "'The number of...' is singular, so the verb is 'is.' (But: “A number of students are…” → plural)"
+  },
+  {
+    "seqNo": 10,
+    "prompt": "Mathematics _______ my favorite subject.",
+    "choices": ["are", "were", "is", "have been"],
+    "correctIndex": 2,
+    "explanation": "Some subjects like Mathematics, News, Physics look plural but are actually singular academic subjects. So we say: → 'Mathematics is...'"
+  },
+  
+  {
+    "seqNo": 11,
+    "prompt": "Either the manager or the assistants _______ responsible for locking the office.",
+    "choices": ["were", "are", "is", "have"],
+    "correctIndex": 1,
+    "explanation": "'Each' is always singular, even if followed by a plural noun. So we use 'is.'"
+  },
+  {
+    "seqNo": 12,
+    "prompt": "Each of the players _______ given a medal.",
+    "choices": ["was", "is", "are", "be"],
+    "correctIndex": 2,
+    "explanation": "With 'neither...nor', the verb agrees with the closer subject, which is 'students' (plural). So the correct verb is 'are.'"
+  },
+  {
+    "seqNo": 13,
+    "prompt": "The books on the shelf _______ dusty.",
+    "choices": ["is", "are", "was", "has"],
+    "correctIndex": 1,
+    "explanation": "The subject is 'books', which is plural, so we use 'are."
+  },
+  {
+    "seqNo": 14,
+    "prompt": "Neither the teacher nor the students _______ ready.",
+    "choices": ["is", "are", "has", "was"],
+    "correctIndex": 1,
+    "explanation": "With “neither...nor,” the verb agrees with the nearest subject, which is “students” (plural)."
+  },
+  {
+    "seqNo": 15,
+    "prompt": "The committee _______ deciding on the new rules.",
+    "choices": ["are", "is", "have", "were"],
+    "correctIndex": 1,
+    "explanation": "“Committee” is a collective noun and usually treated as singular in American English."
+  },
+  {
+    "seqNo": 16,
+    "prompt": "My pants _______ in the laundry basket.",
+    "choices": ["is", "are", "was", "been"],
+    "correctIndex": 2,
+    "explanation": "'Pants' is always plural (like scissors, glasses), so it takes a plural verb."
+  },
+  {
+    "seqNo": 17,
+    "prompt": "There _______ a pen and a notebook on the table.",
+    "choices": ["is", "are", "was", "has"],
+    "correctIndex": 1,
+    "explanation": "“A pen and a notebook” are two items → plural subject, so we use “are.”"
+  },
+  {
+    "seqNo": 18,
+    "prompt": "Ten dollars _______ not enough for lunch these days.",
+    "choices": ["are", "were", "is", "have"],
+    "correctIndex": 2,
+    "explanation": "Amounts of money are treated as singular units → “Ten dollars” = one sum, so use “is.”"
+  },
+  {
+    "seqNo": 19,
+    "prompt": "One of the singers _______ performing tonight.",
+    "choices": ["are", "where", "is", "have"],
+    "correctIndex": 2,
+    "explanation": "The subject is “one” (singular), not “singers.” So we use “is."
+  },
+  {
+    "seqNo": 20,
+    "prompt": "The news _______ shocking to everyone.",
+    "choices": ["are", "were", "is", "have"],
+    "correctIndex": 2,
+    "explanation": "“News” looks plural but is treated as an uncountable noun, so it takes a singular verb."
   }
 ]
+
